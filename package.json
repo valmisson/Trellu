@@ -13,6 +13,7 @@
     "lint": "eslint src/**"
   },
   "dependencies": {
+    "normalize.css": "^8.0.1",
     "svelte": "^3.12.1"
   },
   "devDependencies": {

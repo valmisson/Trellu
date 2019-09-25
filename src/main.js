@@ -1,3 +1,7 @@
+// external css
+import 'normalize.css'
+import './styles/main.css'
+
 import App from './App.svelte'
 
 const app = new App({
