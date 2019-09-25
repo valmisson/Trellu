@@ -1,0 +1,16 @@
+# Logs
+.DS_*
+*.log
+logs
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules
+
+# dotenv environment variables file
+.env
+.env.test
+
+# Svelte
+public/bundle.*
