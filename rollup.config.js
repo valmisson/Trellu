@@ -37,7 +37,7 @@ export default {
       plugins: [
         postcssImport(),
         postcssPresetEnv({
-          stage: 0,
+          stage: 4,
           browsers: 'last 2 versions'
         })
       ],
