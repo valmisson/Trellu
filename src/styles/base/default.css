@@ -10,4 +10,5 @@ html {
 
 body {
   background-color: var(--bg);
+  font-family: 'Roboto', sans-serif;
 }
