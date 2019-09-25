@@ -1,0 +1,21 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
