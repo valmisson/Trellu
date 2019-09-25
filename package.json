@@ -1,6 +1,6 @@
 {
   "name": "trellu",
-  "version": "0.0.2",
+  "version": "0.0.8",
   "description": "Gerenciado de projetos",
   "author": "Valmisson Grizorte - valmisson.com",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "lint": "eslint src/**"
   },
   "dependencies": {
+    "@spaceavocado/svelte-router": "^1.0.15",
     "normalize.css": "^8.0.1",
     "svelte": "^3.12.1"
   },

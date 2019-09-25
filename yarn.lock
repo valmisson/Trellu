@@ -28,6 +28,18 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-0.5.0.tgz#b21510597fd601e5d7c95008b76bf0d254ebfd31"
   integrity sha512-oZLYFEAzUKyi3SKnXvj32ZCEGH6RDnao7COuCVhDydMS9NrCSVXhM79VaKyP5+Zc33m0QXEd2DN3UkU7OsHcfw==
 
+"@spaceavocado/svelte-router@^1.0.15":
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/@spaceavocado/svelte-router/-/svelte-router-1.0.15.tgz#571d820ff1481fc995b945e2abcb21397506cd5c"
+  integrity sha512-6S8qgN0XZfW4ZGZESM8k2wW3QdPnbV0PTYsJq1/jqZ+qHp4nfxsEvDUW//H+SJfCRtd0O1Jh8YEPl5vDvwerQg==
+  dependencies:
+    "@spaceavocado/type-check" "^1.0.2"
+
+"@spaceavocado/type-check@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@spaceavocado/type-check/-/type-check-1.0.2.tgz#c38e2f983f1534b28dca14ecba21a72f7d03d44a"
+  integrity sha512-NV5b5nzKZILqAIsOPGy2+dvfIolamghlAih2FACmGMUhtQi632/GbokdaZguMLZyqyQ+F36kK+rUoahgjxMX/w==
+
 "@types/estree@0.0.39":
   version "0.0.39"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"

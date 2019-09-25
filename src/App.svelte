@@ -1,11 +1,5 @@
 <script>
-	export let name
+  import RouterView from './routes'
 </script>
 
-<style>
-	h1 {
-		color: purple;
-	}
-</style>
-
-<h1>Hello {name}!</h1>
+<RouterView />
