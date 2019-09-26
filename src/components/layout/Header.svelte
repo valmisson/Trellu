@@ -3,12 +3,14 @@
     align-items: center;
     background-color: var(--white);
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
-    display: grid;
+    display: flex;
     height: 50px;
   }
 
   a {
+    display: table;
     text-decoration: none;
+    margin: 0 auto;
   }
 
   .brand {
