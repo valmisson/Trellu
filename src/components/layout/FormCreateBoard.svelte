@@ -16,16 +16,20 @@
     height: 100vh;
     position: fixed;
     width: 100vw;
-    z-index: 999;
+    z-index: 998;
   }
 
   .form {
     background-color: var(--white);
     border-radius: 3px;
     display: grid;
-    margin: 100px auto;
+    left: 50%;
     padding: 22px;
+    position: absolute;
+    top: 100px;
+    transform: translate(-50%, 0);
     width: 90%;
+    z-index: 999;
   }
 
   .form-inputs {
@@ -104,20 +108,19 @@
   }
 </style>
 
-<div class="overlay">
-  <section class="form">
-    <div class="form-inputs">
-      <label>Nome do Quadro</label>
-      <input type="text" placeholder="Digite o nome do quadro">
-    </div>
+<div class="overlay"></div>
+<section class="form">
+  <div class="form-inputs">
+    <label>Nome do Quadro</label>
+    <input type="text" placeholder="Digite o nome do quadro">
+  </div>
 
-    <div class="form-colors">
-      {#each colors as color, index}
-        <button class={`btn-color ${color} ${selected == index ? 'selected' : ''}`}
-          on:click={select(color)} data-id={index}></button>
-      {/each}
-    </div>
+  <div class="form-colors">
+    {#each colors as color, index}
+      <button class={`btn-color ${color} ${selected == index ? 'selected' : ''}`}
+        on:click={select(color)} data-id={index}></button>
+    {/each}
+  </div>
 
-    <button class="btn btn-primary">CRIAR QUADRO</button>
-  </section>
-</div>
+  <button class="btn btn-primary">CRIAR QUADRO</button>
+</section>
