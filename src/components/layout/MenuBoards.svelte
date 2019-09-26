@@ -1,9 +1,16 @@
 <script>
   import { fade } from 'svelte/transition'
+  import { formCreate } from '../../store'
 
   let isVisible = false
 
   const toggleBox = () => isVisible = !isVisible
+
+  const showForm = () => {
+    toggleBox()
+
+    formCreate.show()
+  }
 </script>
 
 <style>
@@ -85,7 +92,7 @@
       </a>
     </li>
 
-    <button class="menu-btn-create">CRIAR NOVO QUADRO</button>
+    <button class="menu-btn-create" on:click={showForm}>CRIAR NOVO QUADRO</button>
   </ul>
   {/if}
 </nav>

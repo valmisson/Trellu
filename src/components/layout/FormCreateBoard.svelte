@@ -1,4 +1,7 @@
 <script>
+  import { fade } from 'svelte/transition'
+  import { formCreate } from '../../store'
+
   const colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink']
   let colorSelected = 'blue'
   let selected = 0
@@ -108,8 +111,9 @@
   }
 </style>
 
-<div class="overlay"></div>
-<section class="form">
+<div class="overlay" on:click={formCreate.close} transition:fade></div>
+
+<section class="form" transition:fade>
   <div class="form-inputs">
     <label>Nome do Quadro</label>
     <input type="text" placeholder="Digite o nome do quadro">
