@@ -1,0 +1,19 @@
+input {
+  border: 1px solid var(--grey-dark);
+  color: var(--text-dark);
+  font-size: 14px;
+  padding: 15px 10px;
+}
+
+input:focus {
+  outline-color: var(--primary);
+}
+
+input::placeholder {
+  color: var(--text-light);
+}
+
+label {
+  color: var(--text-dark);
+  font-size: 14px;
+}
