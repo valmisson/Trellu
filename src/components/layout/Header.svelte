@@ -1,3 +1,7 @@
+<script>
+  import MenuBoards from './Menuboards.svelte'
+</script>
+
 <style>
   header {
     align-items: center;
@@ -10,7 +14,8 @@
   a {
     display: table;
     text-decoration: none;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: 15px;
   }
 
   .brand {
@@ -21,7 +26,7 @@
 
   @media (min-width: 768px) {
     a {
-      text-align: center;
+      margin: 0 auto;
     }
   }
 
@@ -37,6 +42,8 @@
 </style>
 
 <header class="container">
+  <MenuBoards />
+
   <a href="/">
     <h1 class="brand">Trellu</h1>
   </a>
