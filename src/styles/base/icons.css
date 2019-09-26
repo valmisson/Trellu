@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'icons';
+  src:  url('./icons/icons.eot?vwlkv1');
+  src:  url('./icons/icons.eot?vwlkv1#iefix') format('embedded-opentype'),
+    url('./icons/icons.ttf?vwlkv1') format('truetype'),
+    url('./icons/icons.woff?vwlkv1') format('woff'),
+    url('./icons/icons.svg?vwlkv1#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add:before {
+  content: "\e900";
+}
+.icon-board:before {
+  content: "\e901";
+}
+.icon-close:before {
+  content: "\e902";
+}
+.icon-menu-edit:before {
+  content: "\e903";
+}
+.icon-options:before {
+  content: "\e904";
+}
+.icon-selected:before {
+  content: "\e905";
+}
