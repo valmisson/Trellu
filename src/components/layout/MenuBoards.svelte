@@ -41,6 +41,7 @@
     padding: 15px;
     position: absolute;
     top: 50px;
+    z-index: 997;
   }
 
   .menu-box-item a {

@@ -1,13 +1,18 @@
 .btn {
   border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
   padding: 15px 20px;
 }
 
 .btn-primary {
   background-color: var(--primary);
   color: var(--white);
-  font-size: 14px;
-  font-weight: 500;
+}
+
+.btn-create {
+  background-color: var(--grey-dark);
+  color: var(--text-light);
 }
 
 /* Ripple magic */
