@@ -1,5 +1,5 @@
 <script>
-  import MenuBoards from './Menuboards.svelte'
+  import MenuBoards from './MenuBoards.svelte'
 </script>
 
 <style>
