@@ -27,6 +27,7 @@
   @media (min-width: 768px) {
     a {
       margin: 0 auto;
+      transform: translate(-100%, 0);
     }
   }
 

@@ -29,7 +29,7 @@
     left: 50%;
     padding: 22px;
     position: absolute;
-    top: 100px;
+    top: 60px;
     transform: translate(-50%, 0);
     width: 90%;
     z-index: 999;
@@ -72,6 +72,7 @@
     .form {
       grid-column-gap: 5%;
       grid-template-columns: 69% 25%;
+      top: 100px;
     }
 
     .form-inputs {
