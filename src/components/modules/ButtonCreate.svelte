@@ -1,5 +1,7 @@
 <script>
+  export let title
   export let onClick
+  export let classWidth
 </script>
 
 <style>
@@ -11,4 +13,4 @@
   }
 </style>
 
-<button class="btn btn-create" on:click={onClick}>CRIAR QUADRO</button>
+<button class={`btn btn-create ${classWidth}`} on:click={onClick}>{ title }</button>

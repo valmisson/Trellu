@@ -29,7 +29,7 @@
 </style>
 
 <section class="home container">
-  <Board color="blue" title="Aprenda User Experience" link="#/" />
+  <Board color="blue" title="Aprenda User Experience" link="/board/aprenda-user-experience" />
 
-  <ButtonCreate onClick={formCreate.show} />
+  <ButtonCreate title="CRIAR QUADRO" onClick={formCreate.show} />
 </section>

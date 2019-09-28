@@ -87,7 +87,7 @@
   {#if isVisible}
   <ul class="menu-box" transition:fade>
     <li class="menu-box-item">
-      <a href="/#">
+      <a href="/board/aprenda-user-experience">
         <span class="color blue"></span>
         <span class="menu-board-name">Aprenda User Experience</span>
       </a>

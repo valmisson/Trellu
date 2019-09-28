@@ -9,6 +9,7 @@ html {
 }
 
 body {
+  color: var(--text-light);
   background-color: var(--bg);
   font-family: 'Roboto', sans-serif;
 }
