@@ -1,5 +1,10 @@
 <script>
+  import { fade } from 'svelte/transition'
   import ButtonCreate from '@components/modules/ButtonCreate.svelte'
+
+  let isVisible = false
+
+  const toggleFormCreateList = () => isVisible = !isVisible
 </script>
 
 <style>
@@ -8,7 +13,7 @@
   }
 
   :global(.btn-width) {
-    min-width: 295px;
+    min-width: 275px;
     margin-right: 15px;
   }
 
@@ -133,7 +138,42 @@
     margin-bottom: 0;
   }
 
+  /* list create */
+
+  .list-create {
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .form-create-list {
+    background-color: var(--list-bg);
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    min-width: 100%;
+  }
+
+  .form-create-list > input {
+    width: 100%;
+  }
+
+  .form-create-list > div {
+    align-items: center;
+    display: flex;
+    margin-top: 15px;
+  }
+
+  .btn-close {
+    color: var(--text-light);
+    font-size: 18px;
+    margin-left: 30px;
+  }
+
   @media (min-width: 768px) {
+    :global(.btn-width) {
+      min-width: 295px;
+    }
+
     .board {
       padding-left: 35px;
     }
@@ -233,8 +273,18 @@
       </div>
     </article>
 
-    <article class="list-wrapper list-add">
-      <ButtonCreate title="CRIAR LISTA" classWidth="btn-width" />
+    <article class="list-wrapper list-create">
+      <ButtonCreate title="CRIAR LISTA" classWidth="btn-width" onClick={toggleFormCreateList} />
+
+      {#if isVisible}
+        <div class="form-create-list" transition:fade>
+          <input type="text" placeholder="Digite o nome da lista">
+          <div>
+            <button class="btn-create btn btn-primary">CRIAR LISTA</button>
+            <button class="btn-close icon-close" on:click={toggleFormCreateList}></button>
+          </div>
+        </div>
+      {/if}
     </article>
   </section>
 </main>
