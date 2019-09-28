@@ -1,5 +1,8 @@
 <script>
   import { formCreate } from '../store'
+
+  import Board from '../components/home/Board.svelte'
+  import ButtonCreate from '../components/modules/ButtonCreate.svelte'
 </script>
 
 <style>
@@ -7,28 +10,6 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     margin-top: 30px;
-  }
-
-  .home-board {
-    display: grid;
-    border-radius: 3px;
-  }
-
-  .home-board a {
-    padding: 15px;
-  }
-
-  .home-board-title {
-    color: var(--white);
-    font-size: 16px;
-    font-weight: normal;
-    margin: 0;
-  }
-
-  .home-board,
-  .btn-create {
-    height: 80px;
-    margin-bottom: 20px;
   }
 
   @media (min-width: 768px) {
@@ -47,12 +28,8 @@
   }
 </style>
 
-<main class="home container">
-  <article class="home-board blue">
-    <a href="/#" class="btn">
-      <h3 class="home-board-title">Aprenda User Experience</h3>
-    </a>
-  </article>
+<section class="home container">
+  <Board color="blue" title="Aprenda User Experience" link="#/" />
 
-  <button class="btn btn-create" on:click={formCreate.show}>CRIAR QUADRO</button>
-</main>
+  <ButtonCreate onClick={formCreate.show} />
+</section>

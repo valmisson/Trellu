@@ -10,11 +10,6 @@
   color: var(--white);
 }
 
-.btn-create {
-  background-color: var(--grey-dark);
-  color: var(--text-light);
-}
-
 /* Ripple magic */
 [class*="btn"] {
   position: relative;
