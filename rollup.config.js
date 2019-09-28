@@ -3,6 +3,7 @@ import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
+import alias from 'rollup-plugin-alias'
 import postcss from 'rollup-plugin-postcss'
 
 // postcss plugins
@@ -43,6 +44,18 @@ export default {
       ],
       extract: true,
       extensions: ['.css']
+    }),
+
+    // define alias
+    alias({
+      resolve: ['', '.js', '.svelte'],
+      entries: [
+        { find: '~', replacement: './' },
+        { find: '@', replacement: 'src/' },
+        { find: '@components', replacement: 'src/components' },
+        { find: '@views', replacement: 'src/views' },
+        { find: '@store', replacement: 'src/store.js' }
+      ]
     }),
 
     // If you have external dependencies installed from

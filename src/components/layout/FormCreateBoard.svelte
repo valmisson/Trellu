@@ -1,6 +1,6 @@
 <script>
   import { fade } from 'svelte/transition'
-  import { formCreate } from '../../store'
+  import { formCreate } from '@store'
 
   const colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink']
   let colorSelected = 'blue'

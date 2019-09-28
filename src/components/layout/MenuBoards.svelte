@@ -1,6 +1,6 @@
 <script>
   import { fade } from 'svelte/transition'
-  import { formCreate } from '../../store'
+  import { formCreate } from '@store'
 
   let isVisible = false
 

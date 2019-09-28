@@ -1,8 +1,8 @@
 <script>
-  import { formCreate } from '../store'
+  import { formCreate } from '@store'
 
-  import Board from '../components/home/Board.svelte'
-  import ButtonCreate from '../components/modules/ButtonCreate.svelte'
+  import Board from '@components/home/Board.svelte'
+  import ButtonCreate from '@components/modules/ButtonCreate.svelte'
 </script>
 
 <style>

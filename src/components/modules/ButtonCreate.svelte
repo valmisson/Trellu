@@ -11,4 +11,4 @@
   }
 </style>
 
-<button class="btn btn-create" on:click={onClick}>CRIAR QUADROsss</button>
+<button class="btn btn-create" on:click={onClick}>CRIAR QUADRO</button>
