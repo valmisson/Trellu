@@ -10,6 +10,14 @@
   color: var(--white);
 }
 
+.btn-close {
+  color: var(--text-light);
+  font-size: 18px;
+  margin-left: 30px;
+}
+
+/* Efects */
+
 /* Ripple magic */
 [class*="btn"] {
   position: relative;

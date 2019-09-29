@@ -1,49 +1,39 @@
 <script>
-  import { fade } from 'svelte/transition'
-  import ButtonCreate from '@components/modules/ButtonCreate.svelte'
+  import CreateList from '@components/board/CreateList.svelte'
+  import List from '@components/board/List.svelte'
 
   const mochaList = [
-    {id: 'ascve'},
-    {id: 'avehs'},
-    {id: 'eggha'}
+    {
+      id: 'ascve',
+      title: 'To Do',
+      lists: [
+        'Design Thinking',
+        'Design Sprint',
+        'Motion',
+        'UI'
+      ]
+    },
+    {
+      id: 'avehs',
+      title: 'In Progress',
+      lists: [
+        'Design System'
+      ]
+    },
+    {
+      id: 'eggha',
+      title: 'Done',
+      lists: [
+        'Empatia',
+        'Research'
+      ]
+    }
   ]
-
-  let showFormCreateList = false
-  let showFormCreateCard = false
-  let currentList
-
-  const toggleFormCreateList = () => showFormCreateList = !showFormCreateList
-  const toggleFormCreateCard = event => {
-    // used to identify which list to display the form
-    currentList = event.target.dataset.id
-
-    showFormCreateCard = !showFormCreateCard
-  }
 </script>
 
 <style>
   :global(body) {
     overflow: hidden;
-  }
-
-  :global(.btn-width) {
-    min-width: 275px;
-    margin-right: 15px;
-  }
-
-  ::-webkit-scrollbar {
-    width: 7px;
-    height: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.08);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.12);
   }
 
   .board {
@@ -93,121 +83,13 @@
     margin-bottom: 20px;
   }
 
-  .list {
-    background-color: var(--list-bg);
-    border-radius: 3px;
-    display: flex;
-    flex-direction: column;
-    max-height: 100%;
-    overflow-y: hidden;
-    padding: 15px 5px 15px 10px;
-  }
-
-  .list-header {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 5px;
-  }
-
-  .list-header-title {
-    color: var(--text-dark);
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0 12px 0 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .list-header-options {
-    display: flex;
-  }
-
-  .options-add {
-    color: var(--text-light);
-    font-size: 15px;
-    margin-right: 5px;
-  }
-
-  .options-menu {
-    color: var(--text-light);
-  }
-
-  .list-cards {
-    margin-top: 15px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 5px;
-  }
-
-  .list-card {
-    background-color: var(--white);
-    border-radius: 3px;
-    padding: 10px 10px 20px 10px;
-    margin-bottom: 10px;
-  }
-
-  .list-card:last-child {
-    margin-bottom: 0;
-  }
-
   /* list create */
 
   .list-create {
-    box-sizing: border-box;
     position: relative;
   }
 
-  .form-create-list {
-    background-color: var(--list-bg);
-    padding: 10px;
-    position: absolute;
-    top: 0;
-    min-width: 100%;
-  }
-
-  .form-create-list > input {
-    width: 100%;
-  }
-
-  .form-create-list > div {
-    align-items: center;
-    display: flex;
-    margin-top: 15px;
-  }
-
-  .btn-close {
-    color: var(--text-light);
-    font-size: 18px;
-    margin-left: 30px;
-  }
-
-  .form-create-card {
-    margin-top: 15px;
-    margin-bottom: 10px;
-    padding-right: 5px;
-  }
-
-  .form-create-card > input {
-    width: 100%;
-  }
-
-  .form-create-card > div {
-    align-items:  center;
-    display: flex;
-    margin-top: 15px;
-  }
-
-  .form-create-card .btn-create {
-    padding: 13px 20px;
-  }
-
   @media (min-width: 768px) {
-    :global(.btn-width) {
-      min-width: 295px;
-    }
-
     .board {
       padding-left: 35px;
     }
@@ -258,60 +140,12 @@
   <section class="board-lists">
     {#each mochaList as list}
       <article class="list-wrapper">
-        <div class="list">
-          <header class="list-header">
-            <h3 class="list-header-title">To Do</h3>
-
-            <nav class="list-header-options">
-              <button class="options-add icon-add" on:click={toggleFormCreateCard} data-id={list.id}></button>
-              <button class="options-menu icon-options"></button>
-            </nav>
-          </header>
-
-          <!-- show form only in current list -->
-          {#if showFormCreateCard && currentList === list.id}
-            <div class="form-create-card" transition:fade>
-              <input type="text" placeholder="Digite o nome do cartão">
-
-              <div>
-                <button class="btn-create btn btn-primary">CRIAR CARTÂO</button>
-                <button class="btn-close icon-close" on:click={toggleFormCreateCard}></button>
-              </div>
-            </div>
-          {/if}
-
-          <ul class="list-cards">
-            <li class="list-card">Design Thinking</li>
-            <li class="list-card">Design Sprint</li>
-            <li class="list-card">Design Empatia</li>
-            <li class="list-card">Design Thinking</li>
-            <li class="list-card">Design Thinking</li>
-            <li class="list-card">Design Thinking</li>
-            <li class="list-card">Design Thinking</li>
-            <li class="list-card">Design Thinking</li>
-            <li class="list-card">Design Thinking</li>
-            <li class="list-card">Design Thinking</li>
-            <li class="list-card">Design Thinking</li>
-            <li class="list-card">Design Thinking</li>
-            <li class="list-card">Design Thinking</li>
-            <li class="list-card">Design Thinking</li>
-          </ul>
-        </div>
+        <List list={list}/>
       </article>
     {/each}
 
     <article class="list-wrapper list-create">
-      <ButtonCreate title="CRIAR LISTA" classWidth="btn-width" onClick={toggleFormCreateList} />
-
-      {#if showFormCreateList}
-        <div class="form-create-list" transition:fade>
-          <input type="text" placeholder="Digite o nome da lista">
-          <div>
-            <button class="btn-create btn btn-primary">CRIAR LISTA</button>
-            <button class="btn-close icon-close" on:click={toggleFormCreateList}></button>
-          </div>
-        </div>
-      {/if}
+      <CreateList />
     </article>
   </section>
 </main>
