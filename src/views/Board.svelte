@@ -2,9 +2,23 @@
   import { fade } from 'svelte/transition'
   import ButtonCreate from '@components/modules/ButtonCreate.svelte'
 
-  let isVisible = false
+  const mochaList = [
+    {id: 'ascve'},
+    {id: 'avehs'},
+    {id: 'eggha'}
+  ]
 
-  const toggleFormCreateList = () => isVisible = !isVisible
+  let showFormCreateList = false
+  let showFormCreateCard = false
+  let currentList
+
+  const toggleFormCreateList = () => showFormCreateList = !showFormCreateList
+  const toggleFormCreateCard = event => {
+    // used to identify which list to display the form
+    currentList = event.target.dataset.id
+
+    showFormCreateCard = !showFormCreateCard
+  }
 </script>
 
 <style>
@@ -169,6 +183,26 @@
     margin-left: 30px;
   }
 
+  .form-create-card {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding-right: 5px;
+  }
+
+  .form-create-card > input {
+    width: 100%;
+  }
+
+  .form-create-card > div {
+    align-items:  center;
+    display: flex;
+    margin-top: 15px;
+  }
+
+  .form-create-card .btn-create {
+    padding: 13px 20px;
+  }
+
   @media (min-width: 768px) {
     :global(.btn-width) {
       min-width: 295px;
@@ -222,61 +256,54 @@
   </header>
 
   <section class="board-lists">
-    <article class="list-wrapper">
-      <div class="list">
-        <header class="list-header">
-          <h3 class="list-header-title">To Do</h3>
+    {#each mochaList as list}
+      <article class="list-wrapper">
+        <div class="list">
+          <header class="list-header">
+            <h3 class="list-header-title">To Do</h3>
 
-          <nav class="list-header-options">
-            <button class="options-add icon-add"></button>
-            <button class="options-menu icon-options"></button>
-          </nav>
-        </header>
+            <nav class="list-header-options">
+              <button class="options-add icon-add" on:click={toggleFormCreateCard} data-id={list.id}></button>
+              <button class="options-menu icon-options"></button>
+            </nav>
+          </header>
 
-        <ul class="list-cards">
-          <li class="list-card">Design Thinking</li>
-          <li class="list-card">Design Sprint</li>
-          <li class="list-card">Design Empatia</li>
-          <li class="list-card">Design Thinking</li>
-          <li class="list-card">Design Thinking</li>
-          <li class="list-card">Design Thinking</li>
-          <li class="list-card">Design Thinking</li>
-          <li class="list-card">Design Thinking</li>
-          <li class="list-card">Design Thinking</li>
-          <li class="list-card">Design Thinking</li>
-          <li class="list-card">Design Thinking</li>
-          <li class="list-card">Design Thinking</li>
-          <li class="list-card">Design Thinking</li>
-          <li class="list-card">Design Thinking</li>
-        </ul>
-      </div>
-    </article>
+          <!-- show form only in current list -->
+          {#if showFormCreateCard && currentList === list.id}
+            <div class="form-create-card" transition:fade>
+              <input type="text" placeholder="Digite o nome do cartão">
 
-    <article class="list-wrapper">
-      <div class="list">
-        <header class="list-header">
-          <h3 class="list-header-title">In Progress</h3>
+              <div>
+                <button class="btn-create btn btn-primary">CRIAR CARTÂO</button>
+                <button class="btn-close icon-close" on:click={toggleFormCreateCard}></button>
+              </div>
+            </div>
+          {/if}
 
-          <nav class="list-header-options">
-            <button class="options-add icon-add"></button>
-            <button class="options-menu icon-options"></button>
-          </nav>
-        </header>
-
-        <ul class="list-cards">
-          <li class="list-card">Design Thinking</li>
-          <li class="list-card">Design Sprint</li>
-          <li class="list-card">Design Empatia</li>
-          <li class="list-card">Design Thinking</li>
-          <li class="list-card">Design Thinking</li>
-        </ul>
-      </div>
-    </article>
+          <ul class="list-cards">
+            <li class="list-card">Design Thinking</li>
+            <li class="list-card">Design Sprint</li>
+            <li class="list-card">Design Empatia</li>
+            <li class="list-card">Design Thinking</li>
+            <li class="list-card">Design Thinking</li>
+            <li class="list-card">Design Thinking</li>
+            <li class="list-card">Design Thinking</li>
+            <li class="list-card">Design Thinking</li>
+            <li class="list-card">Design Thinking</li>
+            <li class="list-card">Design Thinking</li>
+            <li class="list-card">Design Thinking</li>
+            <li class="list-card">Design Thinking</li>
+            <li class="list-card">Design Thinking</li>
+            <li class="list-card">Design Thinking</li>
+          </ul>
+        </div>
+      </article>
+    {/each}
 
     <article class="list-wrapper list-create">
       <ButtonCreate title="CRIAR LISTA" classWidth="btn-width" onClick={toggleFormCreateList} />
 
-      {#if isVisible}
+      {#if showFormCreateList}
         <div class="form-create-list" transition:fade>
           <input type="text" placeholder="Digite o nome da lista">
           <div>
