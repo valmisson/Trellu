@@ -1,7 +1,7 @@
 <script>
   import { formCreate } from '@store'
 
-  import Board from '@components/home/Board.svelte'
+  import Board from '@components/pages/home/Board.svelte'
   import ButtonCreate from '@components/modules/ButtonCreate.svelte'
 </script>
 

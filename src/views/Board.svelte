@@ -1,6 +1,6 @@
 <script>
-  import CreateList from '@components/board/CreateList.svelte'
-  import List from '@components/board/List.svelte'
+  import CreateList from '@components/pages/board/CreateList.svelte'
+  import List from '@components/pages/board/List.svelte'
 
   const mochaList = [
     {
