@@ -10,6 +10,9 @@
         'Design Thinking',
         'Design Sprint',
         'Motion',
+        'UI',
+        'Design Sprint',
+        'Motion',
         'UI'
       ]
     },
@@ -80,7 +83,7 @@
 
   .list-wrapper {
     margin-right: 15px;
-    min-width: 275px;
+    min-width: 250px;
     margin-bottom: 20px;
   }
 
