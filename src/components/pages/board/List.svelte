@@ -12,8 +12,8 @@
     display: flex;
     flex-direction: column;
     max-height: 100%;
-    overflow-y: hidden;
     padding: 15px 5px 15px 10px;
+    position: relative;
   }
 
   .list-cards {
