@@ -5,6 +5,7 @@
   export let title
 
   let showFormCreateCard = false
+  let showFormUpdateList = false
   let showListOptions = false
   let currentList
 
@@ -21,11 +22,21 @@
     showFormCreateCard = !showFormCreateCard
   }
 
+  const toggleFormUpdateList = event => {
+    currentList = getDataId(event)
+
+    showFormUpdateList = !showFormUpdateList
+
+    showListOptions = false
+  }
+
   const toggleListOptions = event => {
     currentList = getDataId(event)
 
     showListOptions = !showListOptions
   }
+
+  const focusInput = el => el.focus()
 </script>
 
 <style>
@@ -60,25 +71,25 @@
     margin-right: 5px;
   }
 
-  /* form-create-card */
+  /* form card */
 
-  .form-create-card {
+  .form-card {
     margin-top: 15px;
     margin-bottom: 10px;
     padding-right: 5px;
   }
 
-  .form-create-card > input {
+  .form-card > input {
     width: 100%;
   }
 
-  .form-create-card > div {
+  .form-card > div {
     align-items:  center;
     display: flex;
     margin-top: 15px;
   }
 
-  .form-create-card .btn-create {
+  .form-card .btn-create {
     padding: 13px 20px;
   }
 
@@ -150,8 +161,10 @@
 
 <!-- show on click and only in current list -->
 
+<!-- Form create card -->
+
 {#if showFormCreateCard && currentList === id}
-  <div class="form-create-card" transition:fade>
+  <div class="form-card" transition:fade>
     <input type="text" placeholder="Digite o nome do cartão">
 
     <div>
@@ -161,9 +174,24 @@
   </div>
 {/if}
 
+<!-- Form update List -->
+
+{#if showFormUpdateList && currentList === id}
+  <div class="form-card" transition:fade>
+    <input type="text" placeholder="Digite o nome do cartão" bind:value={title} use:focusInput>
+
+    <div>
+      <button class="btn-create btn btn-primary">ATUALIZAR</button>
+      <button class="btn-close icon-close" on:click={toggleFormUpdateList}></button>
+    </div>
+  </div>
+{/if}
+
+<!-- List Options -->
+
 {#if showListOptions && currentList === id}
   <div class="list-options" transition:fade>
-    <button class="btn-options-edit">Editar Nome</button>
+    <button class="btn-options-edit" on:click={toggleFormUpdateList}>Editar Nome</button>
     <hr>
     <button class="btn-options-delete">EXCLUIR LISTA</button>
   </div>
