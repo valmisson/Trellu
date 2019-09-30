@@ -18,7 +18,7 @@
     padding: 10px;
     position: absolute;
     top: 0;
-    min-width: 100%;
+    min-width: inherit;
   }
 
   .form-create-list > input {

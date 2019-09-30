@@ -71,7 +71,8 @@
   .board-lists {
     display: flex;
     margin-top: 30px;
-    max-height: 75vh;
+    min-height: 74vh;
+    max-height: 74vh;
     overflow-x: auto;
     overflow-y: hidden;
     user-select: none;
@@ -124,6 +125,7 @@
 
     .board-lists {
       margin-top: 40px;
+      min-height: 72vh;
       max-height: 72vh;
     }
   }
