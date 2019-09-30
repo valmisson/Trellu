@@ -12,7 +12,6 @@
 
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icons' !important;
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -31,12 +30,15 @@
 .icon-close:before {
   content: "\e902";
 }
-.icon-menu-edit:before {
+.icon-edit:before {
   content: "\e903";
 }
-.icon-options:before {
+.icon-menu-edit:before {
   content: "\e904";
 }
-.icon-selected:before {
+.icon-options:before {
   content: "\e905";
+}
+.icon-selected:before {
+  content: "\e906";
 }
