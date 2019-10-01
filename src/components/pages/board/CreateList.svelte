@@ -9,7 +9,7 @@
 
 <style>
   :global(.btn-width) {
-    min-width: 275px;
+    min-width: 250px;
     margin-right: 15px;
   }
 
