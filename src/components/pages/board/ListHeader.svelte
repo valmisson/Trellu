@@ -20,6 +20,9 @@
     currentList = getDataId(event)
 
     showFormCreateCard = !showFormCreateCard
+
+    showListOptions = false
+    showFormUpdateList = false
   }
 
   const toggleFormUpdateList = event => {
@@ -28,6 +31,7 @@
     showFormUpdateList = !showFormUpdateList
 
     showListOptions = false
+    showFormCreateCard = false
   }
 
   const toggleListOptions = event => {
