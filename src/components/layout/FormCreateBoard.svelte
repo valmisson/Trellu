@@ -59,7 +59,7 @@
   }
 
   .selected::before {
-    content: "\e905"; /* .icon-selected */
+    content: "\e906"; /* .icon-selected */
     color: var(--white);
     font-family: 'icons';
   }
