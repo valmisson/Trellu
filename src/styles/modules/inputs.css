@@ -1,8 +1,13 @@
-input {
+input,
+textarea {
   border: 1px solid var(--grey-dark);
   color: var(--text-dark);
   font-size: 14px;
+}
+
+input {
   padding: 15px 10px;
+  width: 100%;
 }
 
 input:focus {
@@ -11,6 +16,11 @@ input:focus {
 
 input::placeholder {
   color: var(--text-light);
+}
+
+textarea {
+  padding: 10px;
+  width: 100%;
 }
 
 label {
