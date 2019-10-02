@@ -1,15 +1,29 @@
 <script>
   import { fade } from 'svelte/transition'
   import { formCreate } from '@store'
+  import BoardDB from '@datastore/Boards.js'
 
   const colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink']
-  let colorSelected = 'blue'
   let selected = 0
+
+  let name
+  let color = colors[0]
 
   const select = value => e => {
     selected = e.target.dataset.id
 
-    colorSelected = value
+    color = value
+  }
+
+  async function createBoard () {
+    if (!name) return
+
+    await BoardDB.create({ name, color })
+
+    // reset form
+    name = ''
+    color = colors[0]
+    selected = 0
   }
 </script>
 
@@ -68,6 +82,11 @@
     margin-top: 35px;
   }
 
+  button:disabled {
+    cursor: no-drop;
+    opacity: 0.6;
+  }
+
   @media (min-width: 768px) {
     .form {
       grid-column-gap: 5%;
@@ -117,7 +136,7 @@
 <section class="form" transition:fade>
   <div class="form-inputs">
     <label>Nome do Quadro</label>
-    <input type="text" placeholder="Digite o nome do quadro">
+    <input type="text" placeholder="Digite o nome do quadro" bind:value={name}>
   </div>
 
   <div class="form-colors">
@@ -127,5 +146,5 @@
     {/each}
   </div>
 
-  <button class="btn btn-primary">CRIAR QUADRO</button>
+  <button class="btn btn-primary" on:click={createBoard} disabled={!name}>CRIAR QUADRO</button>
 </section>
