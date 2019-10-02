@@ -5,7 +5,7 @@
 
   const focusInput = el => el.focus()
 
-  const toggleFormEditCard = () => {
+  function toggleFormEditCard () {
     showFormEditCard = !showFormEditCard
   }
 </script>

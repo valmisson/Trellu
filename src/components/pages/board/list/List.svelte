@@ -2,15 +2,16 @@
   import { onMount } from 'svelte'
   import Sortable from 'sortablejs'
 
-  import ListHeader from './ListHeader.svelte'
-  import ListCard from './ListCard.svelte'
+  import Header from './Header.svelte'
+  import Card from './Card.svelte'
 
   export let list
 
-  let listElem
+  let listCardsElem
 
   onMount(() => {
-    const sortable = new Sortable(listElem, {
+    // register drag-drop plugin
+    const sortable = new Sortable(listCardsElem, {
       group: 'shared',
       ghostClass: 'ghost-list'
     })
@@ -45,11 +46,11 @@
 </style>
 
 <div class="list">
-  <ListHeader id={list.id} title={list.title} />
+  <Header title={list.title} />
 
-  <ul class="list-cards" bind:this={listElem}>
-    {#each list.lists as t}
-      <ListCard title={t} />
+  <ul class="list-cards" bind:this={listCardsElem}>
+    {#each list.lists as titles}
+      <Card title={titles} />
     {/each}
   </ul>
 </div>

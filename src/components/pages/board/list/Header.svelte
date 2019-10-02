@@ -1,46 +1,35 @@
 <script>
   import { fade } from 'svelte/transition'
 
-  export let id
   export let title
 
   let showFormCreateCard = false
   let showFormUpdateList = false
   let showListOptions = false
-  let currentList
 
   let navElement
 
-  // used to identify which list to display the form
-  const getDataId = event => {
-    return navElement.dataset.id
-  }
+  const focusInput = el => el.focus()
 
-  const toggleFormCreateCard = event => {
-    currentList = getDataId(event)
-
+  function toggleFormCreateCard () {
     showFormCreateCard = !showFormCreateCard
 
     showListOptions = false
     showFormUpdateList = false
   }
 
-  const toggleFormUpdateList = event => {
-    currentList = getDataId(event)
-
+  function toggleFormUpdateList () {
     showFormUpdateList = !showFormUpdateList
 
     showListOptions = false
     showFormCreateCard = false
   }
 
-  const toggleListOptions = event => {
-    currentList = getDataId(event)
-
+  function toggleListOptions () {
     showListOptions = !showListOptions
-  }
 
-  const focusInput = el => el.focus()
+    showFormCreateCard = false
+  }
 </script>
 
 <style>
@@ -157,17 +146,15 @@
 <header class="list-header">
   <h3 class="list-header-title">{ title }</h3>
 
-  <nav class="list-header-options" bind:this={navElement} data-id={id}>
+  <nav class="list-header-options" bind:this={navElement} >
     <button class="options-add icon-add" on:click={toggleFormCreateCard}></button>
     <button class="options-menu icon-options" on:click={toggleListOptions}></button>
   </nav>
 </header>
 
-<!-- show on click and only in current list -->
-
 <!-- Form create card -->
 
-{#if showFormCreateCard && currentList === id}
+{#if showFormCreateCard}
   <div class="form-card" transition:fade>
     <input type="text" placeholder="Digite o nome do cartão">
 
@@ -180,7 +167,7 @@
 
 <!-- Form update List -->
 
-{#if showFormUpdateList && currentList === id}
+{#if showFormUpdateList}
   <div class="form-card" transition:fade>
     <input type="text" placeholder="Digite o nome do cartão" bind:value={title} use:focusInput>
 
@@ -193,7 +180,7 @@
 
 <!-- List Options -->
 
-{#if showListOptions && currentList === id}
+{#if showListOptions}
   <div class="list-options" transition:fade>
     <button class="btn-options-edit" on:click={toggleFormUpdateList}>Editar Nome</button>
     <hr>

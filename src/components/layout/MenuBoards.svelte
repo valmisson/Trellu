@@ -2,12 +2,12 @@
   import { fade } from 'svelte/transition'
   import { formCreate } from '@store'
 
-  let isVisible = false
+  let showMenuBox = false
 
-  const toggleBox = () => isVisible = !isVisible
+  const toggleMenuBox = () => showMenuBox = !showMenuBox
 
-  const showForm = () => {
-    toggleBox()
+  function showForm () {
+    toggleMenuBox()
 
     formCreate.show()
   }
@@ -79,12 +79,12 @@
 </style>
 
 <nav class="menu">
-  <button class="menu-btn" on:click={toggleBox}>
-    <i class="icon-board" class:active={isVisible}></i>
+  <button class="menu-btn" on:click={toggleMenuBox}>
+    <i class="icon-board" class:active={showMenuBox}></i>
     <span>Quadros</span>
   </button>
 
-  {#if isVisible}
+  {#if showMenuBox}
   <ul class="menu-box" transition:fade>
     <li class="menu-box-item">
       <a href="/board/aprenda-user-experience">

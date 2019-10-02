@@ -4,7 +4,9 @@
 
   let showFormCreateList = false
 
-  const toggleFormCreateList = () => showFormCreateList = !showFormCreateList
+  function toggleFormCreateList () {
+    showFormCreateList = !showFormCreateList
+  }
 </script>
 
 <style>
