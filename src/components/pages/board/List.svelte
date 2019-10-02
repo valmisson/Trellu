@@ -1,8 +1,20 @@
 <script>
+  import { onMount } from 'svelte'
+  import Sortable from 'sortablejs'
+
   import ListHeader from './ListHeader.svelte'
   import ListCard from './ListCard.svelte'
 
   export let list
+
+  let listElem
+
+  onMount(() => {
+    const sortable = new Sortable(listElem, {
+      group: 'shared',
+      ghostClass: 'ghost-list'
+    })
+  })
 </script>
 
 <style>
@@ -22,12 +34,20 @@
     overflow-x: hidden;
     padding-right: 5px;
   }
+
+  :global(.ghost-list) {
+    opacity: 0;
+  }
+
+  :global(.sortable-chosen) {
+    cursor: grabbing !important;
+  }
 </style>
 
 <div class="list">
   <ListHeader id={list.id} title={list.title} />
 
-  <ul class="list-cards">
+  <ul class="list-cards" bind:this={listElem}>
     {#each list.lists as t}
       <ListCard title={t} />
     {/each}

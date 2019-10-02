@@ -14,6 +14,7 @@
   .list-card {
     background-color: var(--white);
     border-radius: 3px;
+    cursor: grab;
     padding: 10px 10px 20px 10px;
     margin-bottom: 10px;
   }
