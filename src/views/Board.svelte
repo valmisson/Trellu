@@ -1,6 +1,6 @@
 <script>
   import Header from '@components/pages/board/Header.svelte'
-  import Lists from '@components/pages/board/Lists.svelte'
+  import BoardLists from '@components/pages/board/BoardLists.svelte'
 
   const mochaList = [
     {
@@ -59,5 +59,5 @@
 <main class="board">
   <Header title="Aprenda User Experience" color="blue" />
 
-  <Lists lists={mochaList} />
+  <BoardLists lists={mochaList} />
 </main>
