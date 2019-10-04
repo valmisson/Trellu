@@ -46,7 +46,7 @@
 </style>
 
 <div class="list">
-  <Header id={list.id} name={list.name} />
+  <Header listID={list.id} name={list.name} />
 
   <ul class="list-cards" bind:this={listCardsElem}>
     <!-- {#each list.lists as titles}

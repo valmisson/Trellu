@@ -1,8 +1,10 @@
 <script>
   import { fade } from 'svelte/transition'
+  import UID from '@utils/uid.js'
   import ListsDB from '@datastore/Lists.js'
+  import CardsDB from '@datastore/Cards.js'
 
-  export let id
+  export let listID
   export let name
 
   let showFormCreateCard = false
@@ -35,17 +37,34 @@
   }
 
   async function updateList () {
-    await ListsDB.update(id, name)
+    await ListsDB.update(listID, name)
 
     toggleFormUpdateList()
   }
 
   async function deleteList () {
-    await ListsDB.remove(id)
+    await ListsDB.remove(listID)
 
     // remove element of DOM
     const listWrapper = headerElem.parentNode.parentNode
     listWrapper.remove()
+  }
+
+  let cardName = ''
+
+  // create card
+  async function createCard () {
+    if (!cardName) return
+
+    const id = UID()
+    const name = cardName
+    const order = await CardsDB.count(listID)
+    const list = listID
+
+    const cardCreated = await CardsDB.create({ id, name, order, list })
+
+    cardName = ''
+    toggleFormCreateCard()
   }
 </script>
 
@@ -173,10 +192,10 @@
 
 {#if showFormCreateCard}
   <div class="form-card" transition:fade>
-    <input type="text" placeholder="Digite o nome do cartão">
+    <input type="text" placeholder="Digite o nome do cartão" bind:value={cardName}>
 
     <div>
-      <button class="btn-create btn btn-primary">CRIAR CARTÂO</button>
+      <button class="btn-create btn btn-primary" on:click={createCard} disabled={!cardName}>CRIAR CARTÂO</button>
       <button class="btn-close icon-close" on:click={toggleFormCreateCard}></button>
     </div>
   </div>
