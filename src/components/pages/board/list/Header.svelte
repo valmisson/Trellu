@@ -9,6 +9,7 @@
   let showFormUpdateList = false
   let showListOptions = false
 
+  let headerElem
   let navElement
 
   const focusInput = el => el.focus()
@@ -37,6 +38,14 @@
     await ListsDB.update(id, name)
 
     toggleFormUpdateList()
+  }
+
+  async function deleteList () {
+    await ListsDB.remove(id)
+
+    // remove element of DOM
+    const listWrapper = headerElem.parentNode.parentNode
+    listWrapper.remove()
   }
 </script>
 
@@ -151,7 +160,7 @@
   }
 </style>
 
-<header class="list-header">
+<header class="list-header" bind:this={headerElem}>
   <h3 class="list-header-title">{ name }</h3>
 
   <nav class="list-header-options" bind:this={navElement} >
@@ -193,6 +202,6 @@
   <div class="list-options" transition:fade>
     <button class="btn-options-edit" on:click={toggleFormUpdateList}>Editar Nome</button>
     <hr>
-    <button class="btn-options-delete">EXCLUIR LISTA</button>
+    <button class="btn-options-delete" on:click={deleteList}>EXCLUIR LISTA</button>
   </div>
 {/if}

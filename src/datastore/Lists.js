@@ -18,8 +18,13 @@ const update = async (id, name) => {
   await lists.update(id, { name })
 }
 
+const remove = async listID => {
+  await lists.delete(listID)
+}
+
 export default {
   create,
   getAll,
-  update
+  update,
+  remove
 }
