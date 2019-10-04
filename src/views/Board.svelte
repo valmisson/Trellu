@@ -1,6 +1,10 @@
 <script>
+  import { onMount } from 'svelte'
   import Header from '@components/pages/board/Header.svelte'
   import BoardLists from '@components/pages/board/BoardLists.svelte'
+  import BoardDB from '@datastore/Boards.js'
+
+  export let boardID
 
   const mochaList = [
     {
@@ -32,6 +36,15 @@
       ]
     }
   ]
+
+  let board = {
+    name: '',
+    color: ''
+  }
+
+  onMount(async () => {
+    board = await BoardDB.get(boardID)
+  })
 </script>
 
 <style>
@@ -57,7 +70,7 @@
 </style>
 
 <main class="board">
-  <Header title="Aprenda User Experience" color="blue" />
+  <Header name={board.name} color={board.color} />
 
   <BoardLists lists={mochaList} />
 </main>

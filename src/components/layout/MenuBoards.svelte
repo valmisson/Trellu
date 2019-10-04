@@ -1,8 +1,12 @@
 <script>
+  import { onMount } from 'svelte'
   import { fade } from 'svelte/transition'
   import { formCreate } from '@store'
+  import generateLink from '@utils/generateLink.js'
+  import BoardDB from '@datastore/Boards.js'
 
   let showMenuBox = false
+  let boards = []
 
   const toggleMenuBox = () => showMenuBox = !showMenuBox
 
@@ -11,6 +15,10 @@
 
     formCreate.show()
   }
+
+  onMount(async () => {
+    boards = await BoardDB.getAll()
+  })
 </script>
 
 <style>
@@ -85,15 +93,17 @@
   </button>
 
   {#if showMenuBox}
-  <ul class="menu-box" transition:fade>
-    <li class="menu-box-item">
-      <a href="/board/aprenda-user-experience">
-        <span class="color blue"></span>
-        <span class="menu-board-name">Aprenda User Experience</span>
-      </a>
-    </li>
+    <ul class="menu-box" transition:fade>
+      {#each boards as board}
+        <li class="menu-box-item">
+          <a href={generateLink(board.name, board.id)}>
+            <span class={`color ${board.color}`}></span>
+            <span class="menu-board-name">{ board.name }</span>
+          </a>
+        </li>
+      {/each}
 
-    <button class="menu-btn-create" on:click={showForm}>CRIAR NOVO QUADRO</button>
-  </ul>
+      <button class="menu-btn-create" on:click={showForm}>CRIAR NOVO QUADRO</button>
+    </ul>
   {/if}
 </nav>

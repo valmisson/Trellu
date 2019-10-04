@@ -1,5 +1,5 @@
 <script>
-  export let title
+  export let name
   export let color
 </script>
 
@@ -51,6 +51,6 @@
 <header class="board-header">
   <div class="board-title">
     <span class={`board-title-color ${color}`}></span>
-    <h2>{ title }</h2>
+    <h2>{ name }</h2>
   </div>
 </header>

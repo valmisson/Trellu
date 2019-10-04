@@ -1,7 +1,9 @@
 <script>
-  export let color
-  export let title
-  export let link
+  import generateLink from '@utils/generateLink.js'
+
+  export let board
+
+  const { id, name, color } = board
 </script>
 
 <style>
@@ -28,7 +30,7 @@
 </style>
 
 <article class={`home-board ${color}`}>
-  <a href={link} class="btn">
-    <h3 class="home-board-title">{ title }</h3>
+  <a href={generateLink(name, id)} class="btn">
+    <h3 class="home-board-title">{ name }</h3>
   </a>
 </article>

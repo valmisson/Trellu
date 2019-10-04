@@ -1,7 +1,9 @@
 <script>
+  import { router } from '@spaceavocado/svelte-router'
   import { fade } from 'svelte/transition'
   import { formCreate } from '@store'
   import UID from '@utils/uid.js'
+  import generateLink from '@utils/generateLink.js'
   import BoardDB from '@datastore/Boards.js'
 
   const colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink']
@@ -19,12 +21,15 @@
   async function createBoard () {
     if (!name) return
 
-    await BoardDB.create({ id: UID(), name, color })
+    const id = UID()
 
-    // reset form
-    name = ''
-    color = colors[0]
-    selected = 0
+    await BoardDB.create({ id, name, color })
+
+    formCreate.close()
+
+    // go to new board
+    $router.push(generateLink(name, id))
+    location.reload()
   }
 </script>
 

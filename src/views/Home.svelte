@@ -1,8 +1,15 @@
 <script>
+  import { onMount } from 'svelte'
   import { formCreate } from '@store'
-
   import Board from '@components/pages/home/Board.svelte'
   import ButtonCreate from '@components/modules/ButtonCreate.svelte'
+  import BoardDB from '@datastore/Boards.js'
+
+  let boards = []
+
+  onMount(async () => {
+    boards = await BoardDB.getAll()
+  })
 </script>
 
 <style>
@@ -29,7 +36,9 @@
 </style>
 
 <section class="home container">
-  <Board color="blue" title="Aprenda User Experience" link="/board/aprenda-user-experience" />
+  {#each boards as board}
+    <Board board={board} />
+  {/each}
 
   <ButtonCreate title="CRIAR QUADRO" onClick={formCreate.show} />
 </section>
