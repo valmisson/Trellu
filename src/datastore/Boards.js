@@ -1,4 +1,4 @@
-import db from './connection'
+import db from './Connection'
 
 const { boards } = db
 
