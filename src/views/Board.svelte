@@ -6,41 +6,12 @@
 
   export let boardID
 
-  const mochaList = [
-    {
-      id: 'ascve',
-      title: 'To Do',
-      lists: [
-        'Design Thinking',
-        'Design Sprint',
-        'Motion',
-        'UI',
-        'Design Sprint',
-        'Motion',
-        'UI'
-      ]
-    },
-    {
-      id: 'avehs',
-      title: 'In Progress',
-      lists: [
-        'Design System'
-      ]
-    },
-    {
-      id: 'eggha',
-      title: 'Done',
-      lists: [
-        'Empatia',
-        'Research'
-      ]
-    }
-  ]
-
   let board = {
     name: '',
     color: ''
   }
+
+  let lists = []
 
   onMount(async () => {
     board = await BoardDB.get(boardID)
@@ -72,5 +43,5 @@
 <main class="board">
   <Header name={board.name} color={board.color} />
 
-  <BoardLists lists={mochaList} />
+  <BoardLists lists={lists} />
 </main>
