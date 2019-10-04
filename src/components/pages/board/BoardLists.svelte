@@ -3,6 +3,7 @@
   import List from './list/List.svelte'
 
   export let lists
+  export let board
 </script>
 
 <style>
@@ -60,6 +61,6 @@
   {/each}
 
   <article class="list-wrapper create-list">
-    <CreateList />
+    <CreateList board={board}/>
   </article>
 </section>

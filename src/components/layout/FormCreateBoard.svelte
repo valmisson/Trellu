@@ -88,11 +88,6 @@
     margin-top: 35px;
   }
 
-  button:disabled {
-    cursor: no-drop;
-    opacity: 0.6;
-  }
-
   @media (min-width: 768px) {
     .form {
       grid-column-gap: 5%;

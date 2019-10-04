@@ -43,5 +43,5 @@
 <main class="board">
   <Header name={board.name} color={board.color} />
 
-  <BoardLists lists={lists} />
+  <BoardLists lists={lists} board={boardID} />
 </main>

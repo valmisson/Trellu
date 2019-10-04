@@ -16,6 +16,13 @@
   margin-left: 30px;
 }
 
+/* disabled buttons */
+
+button:disabled {
+  cursor: no-drop;
+  opacity: 0.6;
+}
+
 /* Efects */
 
 /* Ripple magic */
