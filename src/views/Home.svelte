@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte'
+  import { fade } from 'svelte/transition'
   import { formCreate } from '@store'
   import Board from '@components/pages/home/Board.svelte'
   import ButtonCreate from '@components/modules/ButtonCreate.svelte'
@@ -35,7 +36,7 @@
   }
 </style>
 
-<section class="home container">
+<section class="home container" transition:fade>
   {#each boards as board}
     <Board board={board} />
   {/each}

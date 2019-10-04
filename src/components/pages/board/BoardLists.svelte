@@ -1,5 +1,6 @@
 <script>
   import { lists } from '@store'
+  import { fade } from 'svelte/transition'
   import CreateList from './list/Create.svelte'
   import List from './list/List.svelte'
 
@@ -55,7 +56,7 @@
 
 <section class="board-lists">
   {#each $lists as list}
-    <article class="list-wrapper">
+    <article class="list-wrapper" transition:fade>
       <List list={list}/>
     </article>
   {/each}

@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte'
+  import { fade } from 'svelte/transition'
   import { lists } from '@store'
   import Header from '@components/pages/board/Header.svelte'
   import BoardLists from '@components/pages/board/BoardLists.svelte'
@@ -45,7 +46,7 @@
   }
 </style>
 
-<main class="board">
+<main class="board" transition:fade>
   <Header name={board.name} color={board.color} />
 
   <BoardLists board={boardID} />
