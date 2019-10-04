@@ -14,7 +14,12 @@ const getAll = async board => {
   return all
 }
 
+const update = async (id, name) => {
+  await lists.update(id, { name })
+}
+
 export default {
   create,
-  getAll
+  getAll,
+  update
 }

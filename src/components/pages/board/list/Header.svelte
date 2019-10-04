@@ -1,7 +1,9 @@
 <script>
   import { fade } from 'svelte/transition'
+  import ListsDB from '@datastore/Lists.js'
 
-  export let title
+  export let id
+  export let name
 
   let showFormCreateCard = false
   let showFormUpdateList = false
@@ -29,6 +31,12 @@
     showListOptions = !showListOptions
 
     showFormCreateCard = false
+  }
+
+  async function updateList () {
+    await ListsDB.update(id, name)
+
+    toggleFormUpdateList()
   }
 </script>
 
@@ -144,7 +152,7 @@
 </style>
 
 <header class="list-header">
-  <h3 class="list-header-title">{ title }</h3>
+  <h3 class="list-header-title">{ name }</h3>
 
   <nav class="list-header-options" bind:this={navElement} >
     <button class="options-add icon-add" on:click={toggleFormCreateCard}></button>
@@ -169,10 +177,11 @@
 
 {#if showFormUpdateList}
   <div class="form-card" transition:fade>
-    <input type="text" placeholder="Digite o nome do cartão" bind:value={title} use:focusInput>
+    <input type="text" placeholder="Digite o nome do cartão"
+      bind:value={name} use:focusInput>
 
     <div>
-      <button class="btn-create btn btn-primary">ATUALIZAR</button>
+      <button class="btn-create btn btn-primary" on:click={updateList} disabled={!name}>ATUALIZAR</button>
       <button class="btn-close icon-close" on:click={toggleFormUpdateList}></button>
     </div>
   </div>
