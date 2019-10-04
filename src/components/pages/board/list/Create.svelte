@@ -1,5 +1,6 @@
 <script>
   import { fade } from 'svelte/transition'
+  import { lists } from '@store'
   import ButtonCreate from '@components/modules/ButtonCreate.svelte'
   import UID from '@utils/uid.js'
   import ListsBD from '@datastore/Lists.js'
@@ -10,15 +11,27 @@
   let name = ''
 
   function toggleFormCreateList () {
+    name = ''
+
     showFormCreateList = !showFormCreateList
+  }
+
+  /* update list on store */
+  function updateListStore (listCreated) {
+    $lists.push(listCreated)
+
+    const oldList = $lists
+
+    lists.update(l => oldList)
   }
 
   async function createList () {
     const id = UID()
 
-    await ListsBD.create({ id, name, board })
+    const listCreated = await ListsBD.create({ id, name, board })
 
-    name = ''
+    updateListStore(listCreated)
+
     toggleFormCreateList()
   }
 </script>

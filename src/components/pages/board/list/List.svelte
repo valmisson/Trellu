@@ -46,11 +46,11 @@
 </style>
 
 <div class="list">
-  <Header title={list.title} />
+  <Header title={list.name} />
 
   <ul class="list-cards" bind:this={listCardsElem}>
-    {#each list.lists as titles}
+    <!-- {#each list.lists as titles}
       <Card title={titles} />
-    {/each}
+    {/each} -->
   </ul>
 </div>

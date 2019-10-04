@@ -1,8 +1,8 @@
 <script>
+  import { lists } from '@store'
   import CreateList from './list/Create.svelte'
   import List from './list/List.svelte'
 
-  export let lists
   export let board
 </script>
 
@@ -54,7 +54,7 @@
 </style>
 
 <section class="board-lists">
-  {#each lists as list}
+  {#each $lists as list}
     <article class="list-wrapper">
       <List list={list}/>
     </article>
