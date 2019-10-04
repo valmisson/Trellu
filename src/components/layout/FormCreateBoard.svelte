@@ -1,6 +1,7 @@
 <script>
   import { fade } from 'svelte/transition'
   import { formCreate } from '@store'
+  import UID from '@utils/uid.js'
   import BoardDB from '@datastore/Boards.js'
 
   const colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink']
@@ -18,7 +19,7 @@
   async function createBoard () {
     if (!name) return
 
-    await BoardDB.create({ name, color })
+    await BoardDB.create({ id: UID(), name, color })
 
     // reset form
     name = ''

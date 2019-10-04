@@ -51,10 +51,11 @@ export default {
       resolve: ['', '.js', '.svelte'],
       entries: [
         { find: '~', replacement: './' },
-        { find: '@', replacement: 'src/' },
+        { find: '@', replacement: 'src' },
         { find: '@components', replacement: 'src/components' },
         { find: '@views', replacement: 'src/views' },
         { find: '@datastore', replacement: 'src/datastore' },
+        { find: '@utils', replacement: 'src/utils' },
         { find: '@store', replacement: 'src/store.js' }
       ]
     }),
