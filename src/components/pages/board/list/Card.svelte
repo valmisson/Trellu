@@ -5,6 +5,7 @@
   export let id
   export let name
 
+  let listCardElem
   let showFormEditCard = false
 
   const focusInput = el => el.focus()
@@ -17,6 +18,12 @@
     await CardsDB.update(id, name)
 
     toggleFormEditCard()
+  }
+
+  async function deleteCard () {
+    await CardsDB.remove(id)
+
+    listCardElem.remove()
   }
 </script>
 
@@ -79,7 +86,7 @@
   }
 </style>
 
-<li class="list-card" transition:fade={{ duration: 700 }}>
+<li class="list-card" transition:fade={{ duration: 700 }} bind:this={listCardElem}>
   {#if !showFormEditCard}
     <div class="card-info">
       <span>{ name }</span>
@@ -94,7 +101,7 @@
       <textarea placeholder="Digite o nome do cartão" rows="2" bind:value={name} use:focusInput></textarea>
 
       <div>
-        <button class="btn-delete-card">EXCLUIR</button>
+        <button class="btn-delete-card" on:click={deleteCard}>EXCLUIR</button>
         <button class="btn btn-primary" on:click={updateCard} disabled={!name}>ATUALIZAR</button>
       </div>
     </div>

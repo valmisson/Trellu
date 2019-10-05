@@ -24,9 +24,14 @@ const update = async (id, name) => {
   await cards.update(id, { name })
 }
 
+const remove = async (cardID) => {
+  await cards.delete(cardID)
+}
+
 export default {
   create,
   count,
   getAll,
-  update
+  update,
+  remove
 }
