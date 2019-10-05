@@ -1,13 +1,18 @@
 <script>
   import { onMount } from 'svelte'
+  import { cards } from '@store'
   import Sortable from 'sortablejs'
-
   import Header from './Header.svelte'
   import Card from './Card.svelte'
 
   export let list
+  export let board
 
   let listCardsElem
+
+  const { id, name } = list
+
+  $: cardsFiltered = $cards.filter(({ list }) => list === id).reverse()
 
   onMount(() => {
     // register drag-drop plugin
@@ -46,11 +51,11 @@
 </style>
 
 <div class="list">
-  <Header listID={list.id} name={list.name} />
+  <Header listID={id} boardID={board} name={name} />
 
   <ul class="list-cards" bind:this={listCardsElem}>
-    <!-- {#each list.lists as titles}
-      <Card title={titles} />
-    {/each} -->
+    {#each cardsFiltered as { id, name } (id)}
+      <Card id={id} name={name} />
+    {/each}
   </ul>
 </div>

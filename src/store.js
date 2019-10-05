@@ -12,3 +12,4 @@ function formCreateBoard () {
 
 export const formCreate = formCreateBoard()
 export const lists = writable([])
+export const cards = writable([])

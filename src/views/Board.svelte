@@ -1,11 +1,12 @@
 <script>
   import { onMount } from 'svelte'
   import { fade } from 'svelte/transition'
-  import { lists } from '@store'
+  import { lists, cards } from '@store'
   import Header from '@components/pages/board/Header.svelte'
   import BoardLists from '@components/pages/board/BoardLists.svelte'
   import BoardDB from '@datastore/Boards.js'
   import ListsDB from '@datastore/Lists.js'
+  import cardsDB from '@datastore/Cards.js'
 
   export let boardID
 
@@ -18,9 +19,11 @@
     board = await BoardDB.get(boardID)
 
     let allLists = await ListsDB.getAll(boardID)
+    let allCards = await cardsDB.getAll(boardID)
 
-    // set list data on store
+    // set data on store
     lists.set(allLists)
+    cards.set(allCards)
   })
 </script>
 

@@ -1,9 +1,11 @@
 <script>
   import { fade } from 'svelte/transition'
+  import { cards } from '@store'
   import UID from '@utils/uid.js'
   import ListsDB from '@datastore/Lists.js'
   import CardsDB from '@datastore/Cards.js'
 
+  export let boardID
   export let listID
   export let name
 
@@ -52,6 +54,15 @@
 
   let cardName = ''
 
+  // update Cards on Store
+  function updateCardsStore (cardCreated) {
+    $cards.push(cardCreated)
+
+    const oldCards = $cards
+
+    cards.update(() => oldCards)
+  }
+
   // create card
   async function createCard () {
     if (!cardName) return
@@ -60,9 +71,13 @@
     const name = cardName
     const order = await CardsDB.count(listID)
     const list = listID
+    const board = boardID
 
-    const cardCreated = await CardsDB.create({ id, name, order, list })
+    const cardCreated = await CardsDB.create({ id, name, order, list, board })
 
+    updateCardsStore(cardCreated)
+
+    // close form
     cardName = ''
     toggleFormCreateCard()
   }

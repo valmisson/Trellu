@@ -14,7 +14,14 @@ const count = async list => {
   return total
 }
 
+const getAll = async board => {
+  const all = await cards.where({ board }).toArray()
+
+  return all
+}
+
 export default {
   create,
-  count
+  count,
+  getAll
 }

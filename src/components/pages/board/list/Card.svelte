@@ -1,5 +1,6 @@
 <script>
-  export let title
+  export let id
+  export let name
 
   let showFormEditCard = false
 
@@ -72,7 +73,7 @@
 <li class="list-card">
   {#if !showFormEditCard}
     <div class="card-info">
-      <span>{ title }</span>
+      <span>{ name }</span>
       <button class="btn-edit-card icon-edit" on:click={toggleFormEditCard}></button>
     </div>
   {/if}
@@ -81,7 +82,7 @@
     <div class="form-edit-card">
       <button class="btn-close icon-close" on:click={toggleFormEditCard}></button>
 
-      <textarea placeholder="Digite o nome do cartão" rows="2" bind:value={title} use:focusInput></textarea>
+      <textarea placeholder="Digite o nome do cartão" rows="2" bind:value={name} use:focusInput></textarea>
 
       <div>
         <button class="btn-delete-card">EXCLUIR</button>

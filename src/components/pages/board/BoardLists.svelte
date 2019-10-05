@@ -55,9 +55,9 @@
 </style>
 
 <section class="board-lists">
-  {#each $lists as list}
+  {#each $lists as list (list.id)}
     <article class="list-wrapper" transition:fade>
-      <List list={list}/>
+      <List list={list} board={board}/>
     </article>
   {/each}
 
