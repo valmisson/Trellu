@@ -206,7 +206,7 @@
 <!-- Form create card -->
 
 {#if showFormCreateCard}
-  <div class="form-card" transition:fade>
+  <div class="form-card" in:fade>
     <input type="text" placeholder="Digite o nome do cartão" bind:value={cardName} use:focusInput>
 
     <div>

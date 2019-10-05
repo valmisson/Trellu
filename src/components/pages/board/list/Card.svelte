@@ -1,5 +1,6 @@
 <script>
   import { fade } from 'svelte/transition'
+  import CardsDB from '@datastore/Cards.js'
 
   export let id
   export let name
@@ -10,6 +11,12 @@
 
   function toggleFormEditCard () {
     showFormEditCard = !showFormEditCard
+  }
+
+  async function updateCard () {
+    await CardsDB.update(id, name)
+
+    toggleFormEditCard()
   }
 </script>
 
@@ -88,7 +95,7 @@
 
       <div>
         <button class="btn-delete-card">EXCLUIR</button>
-        <button class="btn btn-primary">ATUALIZAR</button>
+        <button class="btn btn-primary" on:click={updateCard} disabled={!name}>ATUALIZAR</button>
       </div>
     </div>
   {/if}

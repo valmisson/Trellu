@@ -20,8 +20,13 @@ const getAll = async board => {
   return all
 }
 
+const update = async (id, name) => {
+  await cards.update(id, { name })
+}
+
 export default {
   create,
   count,
-  getAll
+  getAll,
+  update
 }
