@@ -3,7 +3,7 @@
   import { cards } from '@store'
   import Sortable from 'sortablejs'
   import Header from './Header.svelte'
-  import Card from './Card.svelte'
+  import Card from '../card/Card.svelte'
 
   export let list
   export let board

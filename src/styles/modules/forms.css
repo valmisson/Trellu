@@ -1,0 +1,17 @@
+/* form card */
+
+.form-card {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding-right: 5px;
+}
+
+.form-card > input {
+  width: 100%;
+}
+
+.form-card > div {
+  align-items:  center;
+  display: flex;
+  margin-top: 15px;
+}

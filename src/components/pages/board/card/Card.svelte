@@ -90,6 +90,7 @@
   {#if !showFormEditCard}
     <div class="card-info">
       <span>{ name }</span>
+
       <button class="btn-edit-card icon-edit" on:click={toggleFormEditCard}></button>
     </div>
   {/if}

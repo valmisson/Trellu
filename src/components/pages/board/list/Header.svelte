@@ -1,9 +1,7 @@
 <script>
   import { fade } from 'svelte/transition'
-  import { cards } from '@store'
-  import UID from '@utils/uid.js'
+  import CreateCard from '../card/Create.svelte'
   import ListsDB from '@datastore/Lists.js'
-  import CardsDB from '@datastore/Cards.js'
 
   export let boardID
   export let listID
@@ -51,36 +49,6 @@
     const listWrapper = headerElem.parentNode.parentNode
     listWrapper.remove()
   }
-
-  let cardName = ''
-
-  // update Cards on Store
-  function updateCardsStore (cardCreated) {
-    $cards.push(cardCreated)
-
-    const oldCards = $cards
-
-    cards.update(() => oldCards)
-  }
-
-  // create card
-  async function createCard () {
-    if (!cardName) return
-
-    const id = UID()
-    const name = cardName
-    const order = await CardsDB.count(listID)
-    const list = listID
-    const board = boardID
-
-    const cardCreated = await CardsDB.create({ id, name, order, list, board })
-
-    updateCardsStore(cardCreated)
-
-    // close form
-    cardName = ''
-    toggleFormCreateCard()
-  }
 </script>
 
 <style>
@@ -115,27 +83,7 @@
     margin-right: 5px;
   }
 
-  /* form card */
-
-  .form-card {
-    margin-top: 15px;
-    margin-bottom: 10px;
-    padding-right: 5px;
-  }
-
-  .form-card > input {
-    width: 100%;
-  }
-
-  .form-card > div {
-    align-items:  center;
-    display: flex;
-    margin-top: 15px;
-  }
-
-  .form-card .btn-create {
-    padding: 13px 20px;
-  }
+  /* list options */
 
   .list-options {
     align-self: flex-end;
@@ -206,14 +154,7 @@
 <!-- Form create card -->
 
 {#if showFormCreateCard}
-  <div class="form-card" in:fade>
-    <input type="text" placeholder="Digite o nome do cartão" bind:value={cardName} use:focusInput>
-
-    <div>
-      <button class="btn-create btn btn-primary" on:click={createCard} disabled={!cardName}>CRIAR CARTÂO</button>
-      <button class="btn-close icon-close" on:click={toggleFormCreateCard}></button>
-    </div>
-  </div>
+  <CreateCard board={boardID} list={listID} toggleForm={toggleFormCreateCard} />
 {/if}
 
 <!-- Form update List -->
