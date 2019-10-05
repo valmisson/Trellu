@@ -41,5 +41,5 @@
     <Board board={board} />
   {/each}
 
-  <ButtonCreate title="CRIAR QUADRO" onClick={formCreate.show} />
+  <ButtonCreate title="CRIAR QUADRO" on:click={formCreate.show} />
 </section>

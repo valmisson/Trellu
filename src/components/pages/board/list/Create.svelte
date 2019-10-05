@@ -69,7 +69,7 @@
   }
 </style>
 
-<ButtonCreate title="CRIAR LISTA" classWidth="btn-width" onClick={toggleFormCreateList} />
+<ButtonCreate title="CRIAR LISTA" classWidth="btn-width" on:click={toggleFormCreateList} />
 
 {#if showFormCreateList}
   <div class="form-create-list" transition:fade>
