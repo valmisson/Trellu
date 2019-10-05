@@ -37,6 +37,8 @@
   }
 
   async function updateList () {
+    if (!name) return
+
     await ListsDB.update(listID, name)
 
     toggleFormUpdateList()
@@ -162,7 +164,7 @@
 {#if showFormUpdateList}
   <div class="form-card" transition:fade>
     <input type="text" placeholder="Digite o nome do cartão"
-      bind:value={name} use:focusInput>
+      bind:value={name} use:focusInput on:keydown="{e => e.which === 13 && updateList()}">
 
     <div>
       <button class="btn-create btn btn-primary" on:click={updateList} disabled={!name}>ATUALIZAR</button>

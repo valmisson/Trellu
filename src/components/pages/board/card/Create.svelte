@@ -39,7 +39,8 @@
 </script>
 
 <div class="form-card" in:fade>
-  <input type="text" placeholder="Digite o nome do cartão" bind:value={name} use:focusInput>
+  <input type="text" placeholder="Digite o nome do cartão"
+    bind:value={name} use:focusInput on:keydown="{e => e.which === 13 && createCard()}">
 
   <div>
     <button class="btn-create btn btn-primary" on:click={createCard} disabled={!name}>CRIAR CARTÂO</button>

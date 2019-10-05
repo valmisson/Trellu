@@ -99,7 +99,8 @@
     <div class="form-edit-card">
       <button class="btn-close icon-close" on:click={toggleFormEditCard}></button>
 
-      <textarea placeholder="Digite o nome do cartão" rows="2" bind:value={name} use:focusInput></textarea>
+      <textarea placeholder="Digite o nome do cartão" rows="2"
+        bind:value={name} use:focusInput on:keydown="{e => e.which === 13 && updateCard()}"></textarea>
 
       <div>
         <button class="btn-delete-card" on:click={deleteCard}>EXCLUIR</button>

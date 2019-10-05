@@ -73,7 +73,8 @@
 
 {#if showFormCreateList}
   <div class="form-create-list" transition:fade>
-    <input type="text" placeholder="Digite o nome da lista" bind:value={name} use:focusInput>
+    <input type="text" placeholder="Digite o nome da lista"
+      bind:value={name} use:focusInput on:keydown="{e => e.which === 13 && createList()}">
 
     <div>
       <button class="btn-create btn btn-primary" on:click={createList} disabled={!name}>CRIAR LISTA</button>
