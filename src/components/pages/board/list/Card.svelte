@@ -1,4 +1,6 @@
 <script>
+  import { fade } from 'svelte/transition'
+
   export let id
   export let name
 
@@ -70,7 +72,7 @@
   }
 </style>
 
-<li class="list-card">
+<li class="list-card" transition:fade={{ duration: 700 }}>
   {#if !showFormEditCard}
     <div class="card-info">
       <span>{ name }</span>

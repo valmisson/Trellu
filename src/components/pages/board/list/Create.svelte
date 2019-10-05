@@ -10,6 +10,8 @@
   let showFormCreateList = false
   let name = ''
 
+  const focusInput = el => el.focus()
+
   function toggleFormCreateList () {
     name = ''
 
@@ -71,7 +73,7 @@
 
 {#if showFormCreateList}
   <div class="form-create-list" transition:fade>
-    <input type="text" placeholder="Digite o nome da lista" bind:value={name}>
+    <input type="text" placeholder="Digite o nome da lista" bind:value={name} use:focusInput>
 
     <div>
       <button class="btn-create btn btn-primary" on:click={createList} disabled={!name}>CRIAR LISTA</button>
