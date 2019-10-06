@@ -69,7 +69,7 @@
     position: fixed;
     right: 0;
     top: 50px;
-    width: 300px;
+    width: 290px;
     z-index: 997;
   }
 
@@ -94,6 +94,7 @@
   /* board edit form */
 
   .board-edit-form {
+    display: table;
     margin-top: 40px;
   }
 
@@ -109,17 +110,16 @@
   /* board edit delete */
 
   .board-edit-delete {
-    position: absolute;
-    bottom: 50px;
+    margin-top: 100px;
     width: 100%;
-    text-align: right;
   }
 
   .board-btn-delete {
     color: var(--text-red);
     font-size: 14px;
     font-weight: 500;
-    margin-right: 40px;
+    float: right;
+    margin-right: -5px;
     padding: 5px;
   }
 
@@ -167,6 +167,17 @@
     .board-edit {
       height: calc(100vh - 60px);
       top: 60px;
+    }
+
+    /* board edit delete */
+
+    .board-edit-delete {
+      position: absolute;
+      bottom: 50px;
+    }
+
+    .board-btn-delete {
+      margin-right: 40px;
     }
   }
 </style>
