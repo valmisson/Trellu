@@ -31,7 +31,9 @@ const remove = async cardID => {
 const cleanChild = async list => {
   const allCards = await cards.where({ list }).toArray()
 
-  allCards.forEach(async ({ id }) => await remove(id))
+  allCards.forEach(async ({ id }) => {
+    await remove(id)
+  })
 }
 
 export default {
