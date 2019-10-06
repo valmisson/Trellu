@@ -13,7 +13,10 @@
 
   const { id, name } = list
 
-  $: cardsFiltered = $cards.filter(({ list }) => list === id)
+  // ascending order
+  const orderCards = (a, b) => a.order - b.order
+
+  $: cardsFiltered = $cards.filter(({ list }) => list === id).sort(orderCards)
 
   onMount(() => {
     // register drag-drop plugin
