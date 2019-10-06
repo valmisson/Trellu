@@ -24,8 +24,14 @@ const update = async (id, name) => {
   await cards.update(id, { name })
 }
 
-const remove = async (cardID) => {
+const remove = async cardID => {
   await cards.delete(cardID)
+}
+
+const cleanChild = async list => {
+  const allCards = await cards.where({ list }).toArray()
+
+  allCards.forEach(async ({ id }) => await remove(id))
 }
 
 export default {
@@ -33,5 +39,6 @@ export default {
   count,
   getAll,
   update,
-  remove
+  remove,
+  cleanChild
 }

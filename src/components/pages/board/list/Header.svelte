@@ -1,6 +1,7 @@
 <script>
   import { fade } from 'svelte/transition'
   import CreateCard from '../card/Create.svelte'
+  import CardsDB from '@datastore/Cards.js'
   import ListsDB from '@datastore/Lists.js'
 
   export let boardID
@@ -46,6 +47,9 @@
 
   async function deleteList () {
     await ListsDB.remove(listID)
+
+    // clean child cards
+    await CardsDB.cleanChild(listID)
 
     // remove element of DOM
     const listWrapper = headerElem.parentNode.parentNode
