@@ -25,6 +25,7 @@
   .list-wrapper {
     margin-right: 15px;
     min-width: 250px;
+    max-width: 250px;
     margin-bottom: 20px;
   }
 
@@ -41,6 +42,7 @@
 
     .list-wrapper {
       min-width: 295px;
+      max-width: 295px;
     }
 
   }
