@@ -30,7 +30,7 @@
     display: flex;
     flex-direction: column;
     max-height: 100%;
-    padding: 15px 5px 15px 10px;
+    padding: 15px 5px 0 10px;
     position: relative;
   }
 
@@ -39,6 +39,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     padding-right: 5px;
+    padding-bottom: 20px;
   }
 
   :global(.ghost-list) {
