@@ -40,6 +40,10 @@ const move = async (id, list) => {
   await cards.update(id, { list })
 }
 
+const reorder = async (id, order) => {
+  await cards.update(id, { order })
+}
+
 export default {
   create,
   count,
@@ -47,5 +51,6 @@ export default {
   update,
   remove,
   cleanChild,
-  move
+  move,
+  reorder
 }

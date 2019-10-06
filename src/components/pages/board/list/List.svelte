@@ -13,7 +13,7 @@
 
   const { id, name } = list
 
-  $: cardsFiltered = $cards.filter(({ list }) => list === id).reverse()
+  $: cardsFiltered = $cards.filter(({ list }) => list === id)
 
   onMount(() => {
     // register drag-drop plugin
@@ -22,11 +22,23 @@
       ghostClass: 'ghost-list',
 
       onEnd: async event => {
+        // move card to list
+
         const cardID = event.item.id
         const listID = event.to.id
 
-        // move card to list
         await CardsDB.move(cardID, listID)
+
+        // reorder card position on list
+
+        const allListChildNode = Object.values(event.to.children)
+
+        allListChildNode.forEach(async (cardEl, index) => {
+          const cardID = cardEl.id
+          const newOrder = index
+
+          await CardsDB.reorder(cardID, newOrder)
+        })
       }
     })
   })
