@@ -36,11 +36,16 @@ const cleanChild = async list => {
   })
 }
 
+const move = async (id, list) => {
+  await cards.update(id, { list })
+}
+
 export default {
   create,
   count,
   getAll,
   update,
   remove,
-  cleanChild
+  cleanChild,
+  move
 }

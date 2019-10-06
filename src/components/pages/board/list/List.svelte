@@ -4,6 +4,7 @@
   import Sortable from 'sortablejs'
   import Header from './Header.svelte'
   import Card from '../card/Card.svelte'
+  import CardsDB from '@datastore/Cards.js'
 
   export let list
   export let board
@@ -18,7 +19,15 @@
     // register drag-drop plugin
     const sortable = new Sortable(listCardsElem, {
       group: 'shared',
-      ghostClass: 'ghost-list'
+      ghostClass: 'ghost-list',
+
+      onEnd: async event => {
+        const cardID = event.item.id
+        const listID = event.to.id
+
+        // move card to list
+        await CardsDB.move(cardID, listID)
+      }
     })
   })
 </script>
@@ -54,7 +63,7 @@
 <div class="list">
   <Header listID={id} boardID={board} name={name} />
 
-  <ul class="list-cards" bind:this={listCardsElem}>
+  <ul class="list-cards" {id} bind:this={listCardsElem}>
     {#each cardsFiltered as { id, name } (id)}
       <Card id={id} name={name} />
     {/each}

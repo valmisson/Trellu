@@ -86,7 +86,7 @@
   }
 </style>
 
-<li class="list-card" transition:fade={{ duration: 700 }} bind:this={listCardElem}>
+<li class="list-card" {id} transition:fade={{ duration: 700 }} bind:this={listCardElem}>
   {#if !showFormEditCard}
     <div class="card-info">
       <span>{ name }</span>
