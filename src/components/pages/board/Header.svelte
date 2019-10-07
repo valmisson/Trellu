@@ -25,6 +25,13 @@
     $router.push(generateLink(name, id))
     location.reload()
   }
+
+  async function deleteBoard () {
+    await BoardsDB.remove(id)
+
+    $router.push('/')
+    location.reload()
+  }
 </script>
 
 <style>
@@ -227,7 +234,7 @@
     </div>
 
     <div class="board-edit-delete">
-      <button class="board-btn-delete">EXCLUIR QUADRO</button>
+      <button class="board-btn-delete" on:click={deleteBoard}>EXCLUIR QUADRO</button>
     </div>
   </aside>
 {/if}

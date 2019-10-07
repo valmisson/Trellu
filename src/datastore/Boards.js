@@ -22,9 +22,14 @@ const update = async (id, name) => {
   await boards.update(id, { name })
 }
 
+const remove = async boardID => {
+  await boards.delete(boardID)
+}
+
 export default {
   create,
   get,
   getAll,
-  update
+  update,
+  remove
 }
