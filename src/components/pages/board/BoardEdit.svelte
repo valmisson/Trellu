@@ -11,8 +11,6 @@
   export let name
   export let toggleEdit
 
-  const inputFocus = el => el.focus()
-
   async function updateBoard () {
     if (!name) return
 
@@ -149,7 +147,7 @@
     <label>Nome</label>
 
     <textarea type="text" class="board-edit-input" placeholder="Digite o nome do quadro" rows="3"
-      bind:value={name} use:inputFocus></textarea>
+      bind:value={name}></textarea>
 
     <button class="board-btn-update btn btn-primary" on:click={updateBoard} disabled={!name}>ATUALIZAR</button>
   </div>
