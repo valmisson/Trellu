@@ -50,7 +50,7 @@
 </style>
 
 <main class="board" transition:fade>
-  <Header name={board.name} color={board.color} />
+  <Header id={board.id} name={board.name} color={board.color} />
 
   <BoardLists board={boardID} />
 </main>

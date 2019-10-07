@@ -18,8 +18,13 @@ const getAll = async () => {
   return all
 }
 
+const update = async (id, name) => {
+  await boards.update(id, { name })
+}
+
 export default {
   create,
   get,
-  getAll
+  getAll,
+  update
 }

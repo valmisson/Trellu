@@ -1,6 +1,10 @@
 <script>
-  import { fly } from 'svelte/transition';
+  import { fly } from 'svelte/transition'
+  import { router } from '@spaceavocado/svelte-router'
+  import generateLink from '@utils/generateLink.js'
+  import BoardsDB from '@datastore/Boards.js'
 
+  export let id
   export let name
   export let color
 
@@ -9,6 +13,18 @@
   const inputFocus = el => el.focus()
 
   const toggleEditBoard = () => showEditBoard = !showEditBoard
+
+  async function updateBoard () {
+    if (!name) return
+
+    await BoardsDB.update(id, name)
+
+    toggleEditBoard()
+
+    // update url
+    $router.push(generateLink(name, id))
+    location.reload()
+  }
 </script>
 
 <style>
@@ -207,7 +223,7 @@
       <textarea type="text" class="board-edit-input" placeholder="Digite o nome do quadro" rows="3"
         bind:value={name} use:inputFocus></textarea>
 
-      <button class="board-btn-update btn btn-primary">ATUALIZAR</button>
+      <button class="board-btn-update btn btn-primary" on:click={updateBoard} disabled={!name}>ATUALIZAR</button>
     </div>
 
     <div class="board-edit-delete">
