@@ -1,7 +1,10 @@
 <script>
   import { fly } from 'svelte/transition'
   import { router } from '@spaceavocado/svelte-router'
+  import { lists } from '@store'
   import generateLink from '@utils/generateLink.js'
+  import CardsDB from '@datastore/Cards.js'
+  import ListsDB from '@datastore/Lists.js'
   import BoardsDB from '@datastore/Boards.js'
 
   export let id
@@ -22,8 +25,19 @@
     location.reload()
   }
 
+  // delete lists and cards of board
+  async function deleteCardsAndLists () {
+    $lists.forEach(async ({ id }) => {
+      await CardsDB.cleanChild(id)
+
+      await ListsDB.remove(id)
+    })
+  }
+
   async function deleteBoard () {
     await BoardsDB.remove(id)
+
+    deleteCardsAndLists()
 
     $router.push('/')
     location.reload()
