@@ -2,8 +2,8 @@
   import { fade } from 'svelte/transition'
 
   import { cards } from '@store'
+  import { UID } from '@utils'
   import CardsDB from '@datastore/Cards.js'
-  import UID from '@utils/uid.js'
 
   export let board
   export let list

@@ -1,5 +1,5 @@
 <script>
-  import generateLink from '@utils/generateLink.js'
+  import { generateLink } from '@utils'
 
   export let board
 

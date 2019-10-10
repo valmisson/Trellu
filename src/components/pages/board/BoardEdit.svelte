@@ -3,10 +3,10 @@
   import { router } from '@spaceavocado/svelte-router'
 
   import { lists } from '@store'
+  import { generateLink } from '@utils'
   import CardsDB from '@datastore/Cards.js'
   import ListsDB from '@datastore/Lists.js'
   import BoardsDB from '@datastore/Boards.js'
-  import generateLink from '@utils/generateLink.js'
 
   export let id
   export let name

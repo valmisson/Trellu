@@ -1,10 +1,12 @@
 <script>
   import { onMount } from 'svelte'
-  import { cards } from '@store'
   import Sortable from 'sortablejs'
+
+  import { cards } from '@store'
+  import CardsDB from '@datastore/Cards.js'
+
   import Header from './Header.svelte'
   import Card from '../card/Card.svelte'
-  import CardsDB from '@datastore/Cards.js'
 
   export let list
   export let board

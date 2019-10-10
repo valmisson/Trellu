@@ -3,9 +3,8 @@
   import { router } from '@spaceavocado/svelte-router'
 
   import { formCreate } from '@store'
+  import { UID, generateLink } from '@utils'
   import BoardDB from '@datastore/Boards.js'
-  import UID from '@utils/uid.js'
-  import generateLink from '@utils/generateLink.js'
 
   const colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink']
   let selected = 0

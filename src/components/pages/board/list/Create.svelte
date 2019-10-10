@@ -1,9 +1,11 @@
 <script>
   import { fade } from 'svelte/transition'
+
   import { lists } from '@store'
-  import ButtonCreate from '@components/modules/ButtonCreate.svelte'
-  import UID from '@utils/uid.js'
+  import { UID } from '@utils'
   import ListsBD from '@datastore/Lists.js'
+
+  import ButtonCreate from '@components/modules/ButtonCreate.svelte'
 
   export let board
 

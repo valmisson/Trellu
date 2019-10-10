@@ -1,8 +1,10 @@
 <script>
   import { fade } from 'svelte/transition'
-  import CreateCard from '../card/Create.svelte'
+
   import CardsDB from '@datastore/Cards.js'
   import ListsDB from '@datastore/Lists.js'
+
+  import CreateCard from '../card/Create.svelte'
 
   export let boardID
   export let listID

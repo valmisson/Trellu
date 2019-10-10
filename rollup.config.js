@@ -55,7 +55,7 @@ export default {
         { find: '@components', replacement: 'src/components' },
         { find: '@views', replacement: 'src/views' },
         { find: '@datastore', replacement: 'src/datastore' },
-        { find: '@utils', replacement: 'src/utils' },
+        { find: '@utils', replacement: 'src/utils/index.js' },
         { find: '@store', replacement: 'src/store.js' }
       ]
     }),
