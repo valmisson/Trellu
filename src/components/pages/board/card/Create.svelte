@@ -3,7 +3,7 @@
 
   import { cards } from '@store'
   import { UID } from '@utils'
-  import CardsDB from '@datastore/Cards.js'
+  import { CardsDB } from '@datastore'
 
   export let board
   export let list

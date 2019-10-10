@@ -1,7 +1,7 @@
 <script>
   import { fade } from 'svelte/transition'
 
-  import CardsDB from '@datastore/Cards.js'
+  import { CardsDB } from '@datastore'
 
   export let id
   export let name

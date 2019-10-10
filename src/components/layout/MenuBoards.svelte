@@ -4,7 +4,7 @@
 
   import { formCreate } from '@store'
   import { generateLink } from '@utils'
-  import BoardDB from '@datastore/Boards.js'
+  import { BoardsDB } from '@datastore'
 
   let showMenuBox = false
   let boards = []
@@ -18,7 +18,7 @@
   }
 
   onMount(async () => {
-    boards = await BoardDB.getAll()
+    boards = await BoardsDB.getAll()
   })
 </script>
 

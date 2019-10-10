@@ -1,4 +1,4 @@
-import db from './Connection'
+import db from '../Connection'
 
 const { lists } = db
 

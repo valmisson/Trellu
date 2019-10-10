@@ -4,9 +4,7 @@
 
   import { lists } from '@store'
   import { generateLink } from '@utils'
-  import CardsDB from '@datastore/Cards.js'
-  import ListsDB from '@datastore/Lists.js'
-  import BoardsDB from '@datastore/Boards.js'
+  import { BoardsDB, CardsDB, ListsDB } from '@datastore'
 
   export let id
   export let name

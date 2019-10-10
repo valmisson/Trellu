@@ -3,7 +3,7 @@
   import Sortable from 'sortablejs'
 
   import { cards } from '@store'
-  import CardsDB from '@datastore/Cards.js'
+  import { CardsDB } from '@datastore'
 
   import Header from './Header.svelte'
   import Card from '../card/Card.svelte'

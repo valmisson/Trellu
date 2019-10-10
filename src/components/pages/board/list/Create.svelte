@@ -3,7 +3,7 @@
 
   import { lists } from '@store'
   import { UID } from '@utils'
-  import ListsBD from '@datastore/Lists.js'
+  import { ListsDB } from '@datastore'
 
   import ButtonCreate from '@components/modules/ButtonCreate.svelte'
 
@@ -32,7 +32,7 @@
   async function createList () {
     const id = UID()
 
-    const listCreated = await ListsBD.create({ id, name, board })
+    const listCreated = await ListsDB.create({ id, name, board })
 
     updateListStore(listCreated)
 

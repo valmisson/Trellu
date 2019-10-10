@@ -4,7 +4,7 @@
 
   import { formCreate } from '@store'
   import { UID, generateLink } from '@utils'
-  import BoardDB from '@datastore/Boards.js'
+  import { BoardsDB } from '@datastore'
 
   const colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink']
   let selected = 0
@@ -25,7 +25,7 @@
 
     const id = UID()
 
-    await BoardDB.create({ id, name, color })
+    await BoardsDB.create({ id, name, color })
 
     formCreate.close()
 

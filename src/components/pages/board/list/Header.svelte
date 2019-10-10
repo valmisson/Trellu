@@ -1,8 +1,7 @@
 <script>
   import { fade } from 'svelte/transition'
 
-  import CardsDB from '@datastore/Cards.js'
-  import ListsDB from '@datastore/Lists.js'
+  import { ListsDB, CardsDB } from '@datastore'
 
   import CreateCard from '../card/Create.svelte'
 

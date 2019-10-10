@@ -3,7 +3,7 @@
   import { fade } from 'svelte/transition'
 
   import { formCreate } from '@store'
-  import BoardDB from '@datastore/Boards.js'
+  import { BoardsDB } from '@datastore'
 
   import Board from '@components/pages/home/Board.svelte'
   import ButtonCreate from '@components/modules/ButtonCreate.svelte'
@@ -11,7 +11,7 @@
   let boards = []
 
   onMount(async () => {
-    boards = await BoardDB.getAll()
+    boards = await BoardsDB.getAll()
   })
 </script>
 
@@ -43,5 +43,5 @@
     <Board board={board} />
   {/each}
 
-  <ButtonCreate title="CRIAR QUADRO" on:click={formCreate.show} />
+  <ButtonCreate title="CRIAR QUADRO" classWidth="" on:click={formCreate.show} />
 </section>
