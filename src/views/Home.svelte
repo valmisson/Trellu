@@ -16,32 +16,54 @@
 </script>
 
 <style>
-	.home {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+  .home-header {
     margin-top: 30px;
   }
 
+  .home-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+	.home-boards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 20px;
+  }
+
   @media (min-width: 768px) {
-    .home {
+    .home-header {
+      margin-top: 40px;
+    }
+
+    .home-boards {
       grid-column-gap: 30px;
       grid-template-columns: repeat(3, 1fr);
-      margin-top: 50px;
     }
   }
 
   @media (min-width: 1200px) {
-    .home {
+    .home-title {
+      font-size: 20px;
+    }
+
+    .home-boards {
       grid-template-columns: repeat(4, 1fr);
-      margin-top: 40px;
     }
   }
 </style>
 
-<section class="home container" transition:fade>
-  {#each boards as board}
-    <Board board={board} />
-  {/each}
+<main class="home container" transition:fade>
+  <header class="home-header">
+    <h2 class="home-title">Meus Quadros</h2>
+  </header>
 
-  <ButtonCreate title="CRIAR QUADRO" classWidth="" on:click={formCreate.show} />
-</section>
+  <section class="home-boards">
+    {#each boards as board}
+      <Board board={board} />
+    {/each}
+
+    <ButtonCreate title="CRIAR QUADRO" classWidth="" on:click={formCreate.show} />
+  </section>
+</main>
