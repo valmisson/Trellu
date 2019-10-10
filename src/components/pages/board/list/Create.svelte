@@ -6,11 +6,15 @@
   import { ListsDB } from '@datastore'
 
   import ButtonCreate from '@components/modules/ButtonCreate.svelte'
+  import ClickOutside from '@components/modules/ClickOutside.svelte'
 
   export let boardID
 
   let showFormCreateList = false
   let name = ''
+
+  let buttonCreateElem
+  let formCreateListElem
 
   const focusInput = el => el.focus()
 
@@ -71,10 +75,15 @@
   }
 </style>
 
-<ButtonCreate title="CRIAR LISTA" classWidth="btn-width" on:click={toggleFormCreateList} />
+<div bind:this={buttonCreateElem}>
+  <ButtonCreate title="CRIAR LISTA" classWidth="btn-width" on:click={toggleFormCreateList} />
+</div>
 
 {#if showFormCreateList}
-  <div class="form-create-list" transition:fade>
+  <!-- hide form on click outside element -->
+  <ClickOutside exclude={[buttonCreateElem, formCreateListElem]} on:outside={toggleFormCreateList} />
+
+  <div class="form-create-list" bind:this={formCreateListElem} transition:fade>
     <input type="text" placeholder="Digite o nome da lista"
       bind:value={name} use:focusInput on:keydown="{e => e.which === 13 && createList()}">
 

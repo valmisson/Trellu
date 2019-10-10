@@ -4,6 +4,7 @@
   import { ListsDB, CardsDB } from '@datastore'
 
   import CreateCard from '../card/Create.svelte'
+  import ClickOutside from '@components/modules/ClickOutside.svelte'
 
   export let name
   export let boardID
@@ -15,6 +16,9 @@
 
   let headerElem
   let navElement
+  let listOptionsElem
+  let formCreateCardElem
+  let formUpdateListElem
 
   const focusInput = el => el.focus()
 
@@ -36,6 +40,12 @@
     showListOptions = !showListOptions
 
     showFormCreateCard = false
+  }
+
+  function closeAll () {
+    showListOptions = false
+    showFormCreateCard = false
+    showFormUpdateList = false
   }
 
   async function updateList () {
@@ -158,16 +168,25 @@
   </nav>
 </header>
 
+<!-- hide on click outside element -->
+
+{#if showFormCreateCard || showFormUpdateList || showListOptions}
+  <ClickOutside exclude={[navElement, formCreateCardElem, formUpdateListElem, listOptionsElem]}
+    on:outside={closeAll} />
+{/if}
+
 <!-- Form create card -->
 
 {#if showFormCreateCard}
-  <CreateCard boardID={boardID} listID={listID} toggleForm={toggleFormCreateCard} />
+  <div bind:this={formCreateCardElem}>
+    <CreateCard boardID={boardID} listID={listID} toggleForm={toggleFormCreateCard} />
+  </div>
 {/if}
 
 <!-- Form update List -->
 
 {#if showFormUpdateList}
-  <div class="form-card" transition:fade>
+  <div class="form-card" bind:this={formUpdateListElem} transition:fade>
     <input type="text" placeholder="Digite o nome do cartão"
       bind:value={name} use:focusInput on:keydown="{e => e.which === 13 && updateList()}">
 
@@ -181,7 +200,7 @@
 <!-- List Options -->
 
 {#if showListOptions}
-  <div class="list-options" transition:fade>
+  <div class="list-options" bind:this={listOptionsElem} transition:fade>
     <button class="btn-options-edit" on:click={toggleFormUpdateList}>Editar Nome</button>
     <hr>
     <button class="btn-options-delete" on:click={deleteList}>EXCLUIR LISTA</button>
