@@ -1,10 +1,11 @@
 <script>
-  import { router } from '@spaceavocado/svelte-router'
   import { fade } from 'svelte/transition'
+  import { router } from '@spaceavocado/svelte-router'
+
   import { formCreate } from '@store'
+  import BoardDB from '@datastore/Boards.js'
   import UID from '@utils/uid.js'
   import generateLink from '@utils/generateLink.js'
-  import BoardDB from '@datastore/Boards.js'
 
   const colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink']
   let selected = 0

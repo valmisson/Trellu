@@ -1,10 +1,12 @@
 <script>
   import { onMount } from 'svelte'
   import { fade } from 'svelte/transition'
+
   import { formCreate } from '@store'
+  import BoardDB from '@datastore/Boards.js'
+
   import Board from '@components/pages/home/Board.svelte'
   import ButtonCreate from '@components/modules/ButtonCreate.svelte'
-  import BoardDB from '@datastore/Boards.js'
 
   let boards = []
 

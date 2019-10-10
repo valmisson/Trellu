@@ -1,5 +1,6 @@
 <script>
   import { fade } from 'svelte/transition'
+
   import CardsDB from '@datastore/Cards.js'
 
   export let id

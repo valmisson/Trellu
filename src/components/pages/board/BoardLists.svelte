@@ -1,6 +1,8 @@
 <script>
-  import { lists } from '@store'
   import { fade } from 'svelte/transition'
+
+  import { lists } from '@store'
+
   import CreateList from './list/Create.svelte'
   import List from './list/List.svelte'
 

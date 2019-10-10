@@ -3,14 +3,14 @@
 
   import { formCreate } from '@store'
 
-  import LayoutHeader from '@components/layout/Header.svelte'
-  import FormCreateBoard from '@components/layout/FormCreateBoard.svelte'
+  import Header from '@components/layout/Header.svelte'
+  import FormCreateBoard from '@components/modules/FormCreateBoard.svelte'
 </script>
 
 {#if $formCreate}
   <FormCreateBoard />
 {/if}
 
-<LayoutHeader />
+<Header />
 
 <RouterView />

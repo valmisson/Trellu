@@ -1,9 +1,10 @@
 <script>
   import { onMount } from 'svelte'
   import { fade } from 'svelte/transition'
+
   import { formCreate } from '@store'
-  import generateLink from '@utils/generateLink.js'
   import BoardDB from '@datastore/Boards.js'
+  import generateLink from '@utils/generateLink.js'
 
   let showMenuBox = false
   let boards = []

@@ -1,12 +1,14 @@
 <script>
   import { onMount } from 'svelte'
   import { fade } from 'svelte/transition'
+
   import { lists, cards } from '@store'
-  import Header from '@components/pages/board/Header.svelte'
-  import BoardLists from '@components/pages/board/BoardLists.svelte'
   import BoardDB from '@datastore/Boards.js'
   import ListsDB from '@datastore/Lists.js'
   import cardsDB from '@datastore/Cards.js'
+
+  import Header from '@components/pages/board/BoardHeader.svelte'
+  import BoardLists from '@components/pages/board/BoardLists.svelte'
 
   export let boardID
 
