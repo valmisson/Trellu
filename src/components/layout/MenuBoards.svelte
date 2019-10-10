@@ -6,8 +6,12 @@
   import { generateLink } from '@utils'
   import { BoardsDB } from '@datastore'
 
+  import ClickOutside from '@components/modules/ClickOutside.svelte'
+
   let showMenuBox = false
   let boards = []
+
+  let menuElem
 
   const toggleMenuBox = () => showMenuBox = !showMenuBox
 
@@ -87,13 +91,16 @@
   }
 </style>
 
-<nav class="menu">
-  <button class="menu-btn" on:click={toggleMenuBox}>
+<nav class="menu" bind:this={menuElem}>
+  <button class="menu-btn" on:click={toggleMenuBox} >
     <i class="icon-board" class:active={showMenuBox}></i>
     <span>Quadros</span>
   </button>
 
   {#if showMenuBox}
+    <!-- hide menu on click outside element -->
+    <ClickOutside exclude={[menuElem]} on:outside={toggleMenuBox}/>
+
     <ul class="menu-box" transition:fade>
       {#each boards as board}
         <li class="menu-box-item">
