@@ -6,7 +6,7 @@
   import CreateList from './list/Create.svelte'
   import List from './list/List.svelte'
 
-  export let board
+  export let boardID
 </script>
 
 <style>
@@ -61,11 +61,11 @@
 <section class="board-lists">
   {#each $lists as list (list.id)}
     <article class="list-wrapper" transition:fade>
-      <List list={list} board={board}/>
+      <List list={list} boardID={boardID}/>
     </article>
   {/each}
 
   <article class="list-wrapper create-list">
-    <CreateList board={board}/>
+    <CreateList boardID={boardID}/>
   </article>
 </section>

@@ -7,7 +7,7 @@
 
   import ButtonCreate from '@components/modules/ButtonCreate.svelte'
 
-  export let board
+  export let boardID
 
   let showFormCreateList = false
   let name = ''
@@ -32,7 +32,7 @@
   async function createList () {
     const id = UID()
 
-    const listCreated = await ListsDB.create({ id, name, board })
+    const listCreated = await ListsDB.create({ id, name, board: boardID })
 
     updateListStore(listCreated)
 

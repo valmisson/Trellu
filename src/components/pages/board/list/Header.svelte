@@ -5,9 +5,9 @@
 
   import CreateCard from '../card/Create.svelte'
 
+  export let name
   export let boardID
   export let listID
-  export let name
 
   let showFormCreateCard = false
   let showFormUpdateList = false
@@ -161,7 +161,7 @@
 <!-- Form create card -->
 
 {#if showFormCreateCard}
-  <CreateCard board={boardID} list={listID} toggleForm={toggleFormCreateCard} />
+  <CreateCard boardID={boardID} listID={listID} toggleForm={toggleFormCreateCard} />
 {/if}
 
 <!-- Form update List -->

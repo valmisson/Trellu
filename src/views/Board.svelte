@@ -52,5 +52,5 @@
 <main class="board" transition:fade>
   <Header id={board.id} name={board.name} color={board.color} />
 
-  <BoardLists board={boardID} />
+  <BoardLists boardID={boardID} />
 </main>

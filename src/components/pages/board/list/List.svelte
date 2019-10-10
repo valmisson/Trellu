@@ -9,7 +9,7 @@
   import Card from '../card/Card.svelte'
 
   export let list
-  export let board
+  export let boardID
 
   let listCardsElem
 
@@ -78,7 +78,7 @@
 </style>
 
 <div class="list">
-  <Header listID={id} boardID={board} name={name} />
+  <Header name={name} listID={id} boardID={boardID} />
 
   <ul class="list-cards" {id} bind:this={listCardsElem}>
     {#each cardsFiltered as { id, name } (id)}

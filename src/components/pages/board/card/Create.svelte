@@ -5,8 +5,8 @@
   import { UID } from '@utils'
   import { CardsDB } from '@datastore'
 
-  export let board
-  export let list
+  export let boardID
+  export let listID
   export let toggleForm
 
   let name = ''
@@ -27,6 +27,8 @@
     if (!name) return
 
     const id = UID()
+    const list = listID
+    const board = boardID
     const order = await CardsDB.count(list)
 
     const cardCreated = await CardsDB.create({ id, name, order, list, board })
@@ -48,3 +50,5 @@
     <button class="btn-close icon-close" on:click={toggleForm}></button>
   </div>
 </div>
+
+<!-- this component is usage on List header -->
