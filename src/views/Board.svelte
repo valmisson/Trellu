@@ -40,7 +40,9 @@
   <BoardLists boardID={boardID} />
 </main>
 
-<!-- pwa set dynamic theme color -->
 <svelte:head>
+  <title>{ board.name } - Trellu</title>
+
+  <!-- pwa set dynamic theme color -->
   <meta name="theme-color" content={boardColorHEX(board.color)} >
 </svelte:head>
