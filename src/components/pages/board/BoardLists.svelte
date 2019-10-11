@@ -17,8 +17,8 @@
   .board-lists {
     display: flex;
     margin-top: 30px;
-    min-height: 74vh;
-    max-height: 74vh;
+    min-height: 72vh;
+    max-height: 72vh;
     overflow-x: auto;
     overflow-y: hidden;
     user-select: none;
@@ -52,8 +52,14 @@
   @media (min-width: 1200px) {
     .board-lists {
       margin-top: 40px;
-      min-height: 72vh;
-      max-height: 72vh;
+      min-height: 70vh;
+      max-height: 70vh;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    ::-webkit-scrollbar {
+      display: none;
     }
   }
 </style>

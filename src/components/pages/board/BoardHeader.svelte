@@ -15,7 +15,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
-    margin-right: 15px;
+    margin-right: 10px;
   }
 
   .board-title {
