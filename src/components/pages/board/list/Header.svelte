@@ -1,6 +1,7 @@
 <script>
   import { fade } from 'svelte/transition'
 
+  import { removeElement } from '@utils'
   import { ListsDB, CardsDB } from '@datastore'
 
   import CreateCard from '../card/Create.svelte'
@@ -48,15 +49,6 @@
     showFormUpdateList = false
   }
 
-  // remove element of DOM
-  function removeNode (element) {
-    const fadeTime = 400
-    element.style.transition = `opacity ${fadeTime}ms linear`
-    element.style.opacity = 0
-
-    setTimeout(() => element.remove(), fadeTime)
-  }
-
   async function updateList () {
     if (!name) return
 
@@ -74,7 +66,7 @@
     // remove element list-wrapper of DOM
     const listWrapper = headerElem.parentNode.parentNode
 
-    removeNode(listWrapper)
+    removeElement(listWrapper)
   }
 </script>
 

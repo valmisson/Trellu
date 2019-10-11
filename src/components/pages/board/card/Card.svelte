@@ -1,6 +1,7 @@
 <script>
   import { fade } from 'svelte/transition'
 
+  import { removeElement } from '@utils'
   import { CardsDB } from '@datastore'
 
   export let id
@@ -24,7 +25,8 @@
   async function deleteCard () {
     await CardsDB.remove(id)
 
-    listCardElem.remove()
+    // remove element of DOM
+    removeElement(listCardElem)
   }
 </script>
 
