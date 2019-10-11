@@ -34,6 +34,8 @@
   }
 
   async function createList () {
+    if (!name) return
+
     const id = UID()
 
     const listCreated = await ListsDB.create({ id, name, board: boardID })
