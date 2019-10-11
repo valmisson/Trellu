@@ -7,3 +7,9 @@ export function generateLink (name, id) {
 
   return `/board/${id}/${boardName}`
 }
+
+export function boardColorHEX (colorName) {
+  const CSSvariable = `--${colorName}`
+
+  return getComputedStyle(document.documentElement).getPropertyValue(CSSvariable)
+}

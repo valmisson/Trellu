@@ -3,6 +3,7 @@
   import { fade } from 'svelte/transition'
 
   import { lists, cards } from '@store'
+  import { boardColorHEX } from '@utils'
   import { BoardsDB, ListsDB, CardsDB } from '@datastore'
 
   import Header from '@components/pages/board/BoardHeader.svelte'
@@ -38,3 +39,8 @@
 
   <BoardLists boardID={boardID} />
 </main>
+
+<!-- pwa set dynamic theme color -->
+<svelte:head>
+  <meta name="theme-color" content={boardColorHEX(board.color)} >
+</svelte:head>
