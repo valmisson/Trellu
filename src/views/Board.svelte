@@ -31,22 +31,6 @@
   :global(body) {
     overflow: hidden;
   }
-
-  .board {
-    padding-left: 15px;
-  }
-
-  @media (min-width: 768px) {
-    .board {
-      padding-left: 35px;
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .board {
-      padding-left: 65px;
-    }
-  }
 </style>
 
 <main class="board" transition:fade>

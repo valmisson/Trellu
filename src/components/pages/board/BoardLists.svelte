@@ -31,6 +31,10 @@
     margin-bottom: 20px;
   }
 
+  .list-wrapper:first-child {
+    margin-left: 20px;
+  }
+
   /* create list */
 
   .create-list {

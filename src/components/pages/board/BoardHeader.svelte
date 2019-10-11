@@ -14,8 +14,7 @@
   .board-header {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
-    margin-right: 10px;
+    margin: 30px 5px 0 5px;
   }
 
   .board-title {
@@ -74,26 +73,15 @@
 
     /* board btn edit */
 
-    .board-btn-edit {
-      padding-right: 10px;
-    }
-
     .board-btn-edit > span {
       display: block;
       font-size: 14px;
       margin-right: 10px;
     }
   }
-
-  @media (min-width: 1200px) {
-    .board-btn-edit {
-      margin-right: 30px;
-      padding-right: 0;
-    }
-  }
 </style>
 
-<header class="board-header">
+<header class="board-header container">
   <div class="board-title">
     <span class={`board-title-color ${color}`}></span>
     <h2>{ name }</h2>
