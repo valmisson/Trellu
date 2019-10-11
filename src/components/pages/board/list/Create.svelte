@@ -40,7 +40,7 @@
 
     updateListStore(listCreated)
 
-    toggleFormCreateList()
+    name = ''
   }
 </script>
 

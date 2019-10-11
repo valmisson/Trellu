@@ -35,9 +35,7 @@
 
     updateCardsStore(cardCreated)
 
-    // close form
     name = ''
-    toggleForm()
   }
 </script>
 
