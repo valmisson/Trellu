@@ -48,6 +48,15 @@
     showFormUpdateList = false
   }
 
+  // remove element of DOM
+  function removeNode (element) {
+    const fadeTime = 400
+    element.style.transition = `opacity ${fadeTime}ms linear`
+    element.style.opacity = 0
+
+    setTimeout(() => element.remove(), fadeTime)
+  }
+
   async function updateList () {
     if (!name) return
 
@@ -62,9 +71,10 @@
     // clean child cards
     await CardsDB.cleanChild(listID)
 
-    // remove element of DOM
+    // remove element list-wrapper of DOM
     const listWrapper = headerElem.parentNode.parentNode
-    listWrapper.remove()
+
+    removeNode(listWrapper)
   }
 </script>
 
