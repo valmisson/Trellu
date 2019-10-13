@@ -7,8 +7,14 @@
   .btn-create {
     background-color: var(--grey);
     color: var(--text-light);
-    height: 80px;
+    height: 70px;
     margin-bottom: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .btn-create {
+      height: 80px;
+    }
   }
 </style>
 

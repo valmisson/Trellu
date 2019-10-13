@@ -117,6 +117,12 @@
     }
   }
 
+  @media (min-width: 920px) {
+    .form {
+      width: 70%;
+    }
+  }
+
   @media (min-width: 1200px) {
     .form {
       width: 45%;

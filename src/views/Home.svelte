@@ -32,13 +32,20 @@
     margin-top: 20px;
   }
 
+  @media (min-width: 520px) {
+    .home-boards {
+      grid-column-gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   @media (min-width: 768px) {
     .home-header {
       margin-top: 40px;
     }
 
     .home-boards {
-      grid-column-gap: 30px;
+      grid-column-gap: 25px;
       grid-template-columns: repeat(3, 1fr);
     }
   }
@@ -49,7 +56,7 @@
     }
 
     .home-boards {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
     }
   }
 </style>

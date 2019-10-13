@@ -24,8 +24,14 @@
   }
 
   .home-board {
-    height: 80px;
+    height: 70px;
     margin-bottom: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .home-board {
+      height: 80px;
+    }
   }
 </style>
 
