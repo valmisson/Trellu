@@ -6,6 +6,7 @@
 ::-webkit-scrollbar-track {
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.08);
+  margin: 0 15px;
 }
 
 ::-webkit-scrollbar-thumb {

@@ -14,7 +14,7 @@
   .board-header {
     display: flex;
     justify-content: space-between;
-    margin: 30px 5px 0 5px;
+    margin-top: 25px;
   }
 
   .board-title {
@@ -45,6 +45,7 @@
     align-items: center;
     color: var(--text-light);
     display: flex;
+    padding: 0;
   }
 
   .board-btn-edit > span {

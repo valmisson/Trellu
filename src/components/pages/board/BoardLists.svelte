@@ -10,15 +10,11 @@
 </script>
 
 <style>
-  :global(body) {
-    overflow: hidden;
-  }
-
   .board-lists {
     display: flex;
     margin-top: 30px;
-    min-height: 72vh;
-    max-height: 72vh;
+    min-height: 73vh;
+    max-height: 73vh;
     overflow-x: auto;
     overflow-y: hidden;
     user-select: none;
@@ -32,7 +28,7 @@
   }
 
   .list-wrapper:first-child {
-    margin-left: 20px;
+    margin-left: 15px;
   }
 
   /* create list */
@@ -50,14 +46,13 @@
       min-width: 295px;
       max-width: 295px;
     }
-
   }
 
   @media (min-width: 1200px) {
     .board-lists {
       margin-top: 40px;
-      min-height: 70vh;
-      max-height: 70vh;
+      min-height: 71vh;
+      max-height: 71vh;
     }
   }
 

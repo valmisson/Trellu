@@ -28,12 +28,6 @@
   })
 </script>
 
-<style>
-  :global(body) {
-    overflow: hidden;
-  }
-</style>
-
 <main class="board" transition:fade>
   <Header id={board.id} name={board.name} color={board.color} />
 

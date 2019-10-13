@@ -29,7 +29,7 @@
 <style>
   .menu-btn {
     display: flex;
-    padding: 5px;
+    padding: 5px 0;
   }
 
   .menu-btn span {
@@ -50,8 +50,8 @@
   .menu-box {
     background-color: var(--white);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-    margin-left: -10px;
-    padding: 15px;
+    margin-left: -20px;
+    padding: 15px 20px;
     position: absolute;
     top: 50px;
     z-index: 997;
