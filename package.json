@@ -1,6 +1,6 @@
 {
   "name": "trellu",
-  "version": "0.15.2",
+  "version": "0.16.0",
   "description": "Gerenciado de projetos",
   "author": "Valmisson Grizorte - valmisson.com",
   "license": "MIT",
@@ -38,6 +38,7 @@
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-svelte": "^5.1.0",
     "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-workbox-build": "^0.2.0",
     "sirv-cli": "^0.4.4"
   }
 }

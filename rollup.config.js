@@ -4,6 +4,7 @@ import commonjs from 'rollup-plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
 import alias from 'rollup-plugin-alias'
+import workbox from 'rollup-plugin-workbox-build'
 import postcss from 'rollup-plugin-postcss'
 
 // postcss plugins
@@ -58,6 +59,20 @@ export default {
         { find: '@utils', replacement: 'src/utils/index.js' },
         { find: '@store', replacement: 'src/store.js' }
       ]
+    }),
+
+    // generate service work
+    production && workbox({
+      mode: 'generateSW',
+      options: {
+        globDirectory: 'public',
+        globPatterns: [
+          '**/*.{html,json,js,css,png,svg,woff}'
+        ],
+        swDest: 'public/sw.js',
+        clientsClaim: true,
+        skipWaiting: true
+      }
     }),
 
     // If you have external dependencies installed from
