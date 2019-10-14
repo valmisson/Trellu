@@ -19,7 +19,7 @@
   .home-board-title {
     color: var(--white);
     font-size: 16px;
-    font-weight: normal;
+    font-weight: 500;
     margin: 0;
   }
 
