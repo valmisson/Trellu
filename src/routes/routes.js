@@ -8,8 +8,8 @@ export default [
     component: Home
   },
   {
-    path: '/board/:id/:title',
-    name: 'Home',
+    path: '/b/:id/:title',
+    name: 'Board',
     component: Board,
     props: route => {
       return {

@@ -5,7 +5,7 @@ export function UID () {
 export function generateLink (name, id) {
   const boardName = name.trim().toLowerCase().replace(/ /g, '-')
 
-  return `/board/${id}/${boardName}`
+  return `/b/${id}/${boardName}`
 }
 
 export function removeElement (element) {
