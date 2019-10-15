@@ -21,8 +21,6 @@
   let formCreateCardElem
   let formUpdateListElem
 
-  const focusInput = el => el.focus()
-
   function toggleFormCreateCard () {
     showFormCreateCard = !showFormCreateCard
 
@@ -189,8 +187,9 @@
 
 {#if showFormUpdateList}
   <div class="form-card" bind:this={formUpdateListElem} transition:fade>
+    <!-- svelte-ignore a11y-autofocus -->
     <input type="text" placeholder="Digite o nome do cartão"
-      bind:value={name} use:focusInput on:keydown="{e => e.which === 13 && updateList()}">
+      bind:value={name} on:keydown="{e => e.which === 13 && updateList()}" autofocus>
 
     <div>
       <button class="btn-create btn btn-primary" on:click={updateList} disabled={!name}>ATUALIZAR</button>

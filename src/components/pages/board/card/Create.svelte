@@ -11,8 +11,6 @@
 
   let name = ''
 
-  const focusInput = el => el.focus()
-
    // update Cards on Store
   function updateCardsStore (cardCreated) {
     $cards.push(cardCreated)
@@ -40,8 +38,9 @@
 </script>
 
 <div class="form-card" in:fade>
+  <!-- svelte-ignore a11y-autofocus -->
   <input type="text" placeholder="Digite o nome do cartão"
-    bind:value={name} use:focusInput on:keydown="{e => e.which === 13 && createCard()}">
+    bind:value={name} on:keydown="{e => e.which === 13 && createCard()}" autofocus>
 
   <div>
     <button class="btn-create btn btn-primary" on:click={createCard} disabled={!name}>CRIAR CARTÂO</button>

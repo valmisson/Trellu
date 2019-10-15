@@ -10,8 +10,6 @@
   let listCardElem
   let showFormEditCard = false
 
-  const focusInput = el => el.focus()
-
   function toggleFormEditCard () {
     showFormEditCard = !showFormEditCard
   }
@@ -102,8 +100,9 @@
     <div class="form-edit-card">
       <button class="btn-close icon-close" on:click={toggleFormEditCard}></button>
 
+      <!-- svelte-ignore a11y-autofocus -->
       <input type="text" placeholder="Digite o nome do cartão"
-        bind:value={name} use:focusInput on:keydown="{e => e.which === 13 && updateCard()}">
+        bind:value={name} on:keydown="{e => e.which === 13 && updateCard()}" autofocus>
 
       <div>
         <button class="btn-delete-card" on:click={deleteCard}>EXCLUIR</button>

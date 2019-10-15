@@ -12,8 +12,6 @@
   let name
   let color = colors[0]
 
-  const focusInput = el => el.focus()
-
   const select = value => e => {
     selected = e.target.dataset.id
 
@@ -145,7 +143,9 @@
 <section class="form" transition:fade>
   <div class="form-inputs">
     <label>Nome do Quadro</label>
-    <input type="text" placeholder="Digite o nome do quadro" bind:value={name} use:focusInput>
+
+    <!-- svelte-ignore a11y-autofocus -->
+    <input type="text" placeholder="Digite o nome do quadro" bind:value={name} autofocus>
   </div>
 
   <div class="form-colors">

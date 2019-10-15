@@ -16,8 +16,6 @@
   let buttonCreateElem
   let formCreateListElem
 
-  const focusInput = el => el.focus()
-
   function toggleFormCreateList () {
     name = ''
 
@@ -86,8 +84,9 @@
   <ClickOutside exclude={[buttonCreateElem, formCreateListElem]} on:outside={toggleFormCreateList} />
 
   <div class="form-create-list" bind:this={formCreateListElem} transition:fade>
+    <!-- svelte-ignore a11y-autofocus -->
     <input type="text" placeholder="Digite o nome da lista"
-      bind:value={name} use:focusInput on:keydown="{e => e.which === 13 && createList()}">
+      bind:value={name} on:keydown="{e => e.which === 13 && createList()}" autofocus>
 
     <div>
       <button class="btn-create btn btn-primary" on:click={createList} disabled={!name}>CRIAR LISTA</button>
