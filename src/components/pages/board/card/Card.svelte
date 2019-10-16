@@ -29,7 +29,7 @@
 </script>
 
 <style>
-  .list-card {
+  .card {
     background-color: var(--white);
     border-radius: 3px;
     cursor: grab;
@@ -37,11 +37,11 @@
     margin-bottom: 10px;
   }
 
-  .list-card:last-child {
+  .card:last-child {
     margin-bottom: 0;
   }
 
-  .list-card:hover .btn-edit-card {
+  .card:hover .btn--edit {
     opacity: 1;
     visibility: visible;
     transition: all ease 500ms;
@@ -49,12 +49,12 @@
 
   /* card info */
 
-  .card-info {
+  .card__info {
     display: flex;
     justify-content: space-between;
   }
 
-  .btn-edit-card {
+  .btn--edit {
     color: var(--text-light);
     font-size: 13px;
     margin-top: -4px;
@@ -63,50 +63,51 @@
     transition: all ease 500ms;
   }
 
-  .btn-edit-card:hover {
+  .btn--edit:hover {
     color: var(--text-dark);
   }
 
   /* form edit card */
-  .form-edit-card .btn-close {
+
+  .card__form .btn--close {
     float: right;
     font-size: 16px;
     margin-bottom: 15px;
   }
 
-  .form-edit-card > div {
+  .card__buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
   }
 
-  .btn-delete-card {
+  .btn--delete {
     color: var(--text-red);
     font-size: 14px;
     font-weight: 500;
   }
 </style>
 
-<li class="list-card" {id} transition:fade={{ duration: 700 }} bind:this={listCardElem}>
+<li class="card" {id} transition:fade={{ duration: 700 }} bind:this={listCardElem}>
   {#if !showFormEditCard}
-    <div class="card-info">
+    <div class="card__info">
       <span>{ name }</span>
 
-      <button class="btn-edit-card icon-edit" on:click={toggleFormEditCard}></button>
+      <button class="btn--edit icon-edit" on:click={toggleFormEditCard}></button>
     </div>
   {/if}
 
   {#if showFormEditCard}
-    <div class="form-edit-card">
-      <button class="btn-close icon-close" on:click={toggleFormEditCard}></button>
+    <div class="card__form">
+      <button class="btn--close icon-close" on:click={toggleFormEditCard}></button>
 
       <!-- svelte-ignore a11y-autofocus -->
       <input type="text" placeholder="Digite o nome do cartão"
         bind:value={name} on:keydown="{e => e.which === 13 && updateCard()}" autofocus>
 
-      <div>
-        <button class="btn-delete-card" on:click={deleteCard}>EXCLUIR</button>
-        <button class="btn btn-primary" on:click={updateCard} disabled={!name}>ATUALIZAR</button>
+      <div class="card__buttons">
+        <button class="btn--delete" on:click={deleteCard}>EXCLUIR</button>
+        <button class="btn btn--primary" on:click={updateCard} disabled={!name}>ATUALIZAR</button>
       </div>
     </div>
   {/if}

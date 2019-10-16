@@ -1,16 +1,16 @@
 /* form card */
 
-.form-card {
+.form__card {
   margin-top: 15px;
   margin-bottom: 10px;
   padding-right: 5px;
 }
 
-.form-card > input {
+.form__card > input {
   width: 100%;
 }
 
-.form-card > div {
+.form__card > div {
   align-items:  center;
   display: flex;
   margin-top: 15px;

@@ -13,7 +13,7 @@
   let color = colors[0]
 
   const select = value => e => {
-    selected = e.target.dataset.id
+    selected = e.target.id
 
     color = value
   }
@@ -34,7 +34,7 @@
 </script>
 
 <style>
-  .overlay {
+  .modal--overlay {
     background-color: rgba(93, 93, 93, 0.35);
     height: 100vh;
     position: fixed;
@@ -42,7 +42,7 @@
     z-index: 998;
   }
 
-  .form {
+  .form__modal {
     background-color: var(--white);
     border-radius: 3px;
     display: grid;
@@ -55,16 +55,16 @@
     z-index: 999;
   }
 
-  .form-inputs {
+  .form__input {
     display: flex;
     flex-direction: column;
   }
 
-  .form-inputs > input {
+  .form__input > input {
     margin-top: 10px;
   }
 
-  .form-colors {
+  .form__colors {
     display: grid;
     grid-column-gap: 20px;
     grid-template-columns: repeat(3, 45px);
@@ -72,7 +72,7 @@
     margin-top: 10px;
   }
 
-  .btn-color {
+  .btn--color {
     border-radius: 3px;
     height: 45px;
     margin-top: 20px;
@@ -84,76 +84,76 @@
     font-family: 'icons';
   }
 
-  .form .btn {
+  .btn--create {
     margin-top: 35px;
   }
 
   @media (min-width: 768px) {
-    .form {
+    .form__modal {
       grid-column-gap: 5%;
       grid-template-columns: 69% 25%;
       top: 100px;
     }
 
-    .form-inputs {
+    .form__input {
       border-right: 1px solid var(--grey);
       padding-right: 6%;
     }
 
-    .form-colors {
+    .form__colors {
       margin-top: 20px;
     }
 
-    .btn-color {
+    .btn--color {
       margin-top: 5px;
       margin-bottom: 15px;
     }
 
-    .form .btn {
+    .btn--create {
       width: 40%;
       margin-top: -35px;
     }
   }
 
   @media (min-width: 920px) {
-    .form {
+    .form__modal {
       width: 70%;
     }
   }
 
   @media (min-width: 1200px) {
-    .form {
+    .form__modal {
       width: 45%;
       grid-column-gap: 5%;
       grid-template-columns: 68% 25%;
     }
 
-    .form-colors {
+    .form__colors {
       grid-template-columns: repeat(3, 40px);
     }
 
-    .btn-color {
+    .btn--color {
       height: 40px;
     }
   }
 </style>
 
-<div class="overlay" on:click={formCreate.close} transition:fade></div>
+<div class="modal--overlay" on:click={formCreate.close} transition:fade></div>
 
-<section class="form" transition:fade>
-  <div class="form-inputs">
+<section class="form__modal" transition:fade>
+  <div class="form__input">
     <label>Nome do Quadro</label>
 
     <!-- svelte-ignore a11y-autofocus -->
     <input type="text" placeholder="Digite o nome do quadro" bind:value={name} autofocus>
   </div>
 
-  <div class="form-colors">
+  <div class="form__colors">
     {#each colors as color, index}
-      <button class={`btn-color ${color} ${selected == index ? 'selected' : ''}`}
-        on:click={select(color)} data-id={index}></button>
+      <button class={`btn--color ${color} ${selected == index ? 'selected' : ''}`}
+        on:click={select(color)} id={index}></button>
     {/each}
   </div>
 
-  <button class="btn btn-primary" on:click={createBoard} disabled={!name}>CRIAR QUADRO</button>
+  <button class="btn--create btn btn--primary" on:click={createBoard} disabled={!name}>CRIAR QUADRO</button>
 </section>

@@ -50,7 +50,7 @@
     margin-right: 15px;
   }
 
-  .form-create-list {
+  .lists__create {
     background-color: var(--list-bg);
     padding: 10px;
     position: absolute;
@@ -58,11 +58,11 @@
     min-width: inherit;
   }
 
-  .form-create-list > input {
+  .lists__create > input {
     width: 100%;
   }
 
-  .form-create-list > div {
+  .lists__create > div {
     align-items: center;
     display: flex;
     margin-top: 15px;
@@ -83,14 +83,14 @@
   <!-- hide form on click outside element -->
   <ClickOutside exclude={[buttonCreateElem, formCreateListElem]} on:outside={toggleFormCreateList} />
 
-  <div class="form-create-list" bind:this={formCreateListElem} transition:fade>
+  <div class="lists__create" bind:this={formCreateListElem} transition:fade>
     <!-- svelte-ignore a11y-autofocus -->
     <input type="text" placeholder="Digite o nome da lista"
       bind:value={name} on:keydown="{e => e.which === 13 && createList()}" autofocus>
 
     <div>
-      <button class="btn-create btn btn-primary" on:click={createList} disabled={!name}>CRIAR LISTA</button>
-      <button class="btn-close icon-close" on:click={toggleFormCreateList}></button>
+      <button class="btn btn--primary" on:click={createList} disabled={!name}>CRIAR LISTA</button>
+      <button class="btn--close icon-close" on:click={toggleFormCreateList}></button>
     </div>
   </div>
 {/if}

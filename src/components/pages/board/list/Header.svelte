@@ -69,14 +69,14 @@
 </script>
 
 <style>
-  .list-header {
+  .list__header {
     align-items: center;
     display: flex;
     justify-content: space-between;
     padding: 0 5px;
   }
 
-  .list-header-title {
+  .list__title {
     color: var(--text-dark);
     font-size: 16px;
     font-weight: 500;
@@ -86,23 +86,23 @@
     white-space: nowrap;
   }
 
-  .list-header-options {
+  .list__menu {
     display: flex;
   }
 
-  .options-add,
-  .options-menu {
+  .list__add,
+  .list__options {
     color: var(--text-light);
   }
 
-  .options-add {
+  .list__add {
     font-size: 15px;
     margin-right: 5px;
   }
 
   /* list options */
 
-  .list-options {
+  .options {
     align-self: flex-end;
     background-color: var(--white);
     border-radius: 3px;
@@ -116,7 +116,7 @@
   }
 
   /* triangle */
-  .list-options::after {
+  .options::after {
     border-left: 9px solid transparent;
     border-right: 9px solid transparent;
     border-bottom: 9px solid var(--white);
@@ -127,7 +127,7 @@
   }
 
   /* triangle shadown */
-  .list-options::before {
+  .options::before {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 10px solid rgba(0, 0, 0, 0.20);
@@ -137,16 +137,17 @@
     right: 4px;
   }
 
-  .list-options > button {
+  .options__edit,
+  .options__delete {
     padding: 5px;
   }
 
-  .btn-options-edit {
+  .options__edit {
     color: var(--text-light);
     margin-bottom: 5px;
   }
 
-  .btn-options-delete {
+  .options__delete {
     color: var(--text-red);
     font-size: 14px;
     font-weight: 500;
@@ -159,12 +160,12 @@
   }
 </style>
 
-<header class="list-header" bind:this={headerElem}>
-  <h3 class="list-header-title">{ name }</h3>
+<header class="list__header" bind:this={headerElem}>
+  <h3 class="list__title">{ name }</h3>
 
-  <nav class="list-header-options" bind:this={navElement} >
-    <button class="options-add icon-add" on:click={toggleFormCreateCard}></button>
-    <button class="options-menu icon-options" on:click={toggleListOptions}></button>
+  <nav class="list__menu" bind:this={navElement} >
+    <button class="list__add icon-add" on:click={toggleFormCreateCard}></button>
+    <button class="list__options icon-options" on:click={toggleListOptions}></button>
   </nav>
 </header>
 
@@ -186,14 +187,14 @@
 <!-- Form update List -->
 
 {#if showFormUpdateList}
-  <div class="form-card" bind:this={formUpdateListElem} transition:fade>
+  <div class="form__card" bind:this={formUpdateListElem} transition:fade>
     <!-- svelte-ignore a11y-autofocus -->
     <input type="text" placeholder="Digite o nome do cartão"
       bind:value={name} on:keydown="{e => e.which === 13 && updateList()}" autofocus>
 
     <div>
-      <button class="btn-create btn btn-primary" on:click={updateList} disabled={!name}>ATUALIZAR</button>
-      <button class="btn-close icon-close" on:click={toggleFormUpdateList}></button>
+      <button class="btn btn--primary" on:click={updateList} disabled={!name}>ATUALIZAR</button>
+      <button class="btn--close icon-close" on:click={toggleFormUpdateList}></button>
     </div>
   </div>
 {/if}
@@ -201,9 +202,9 @@
 <!-- List Options -->
 
 {#if showListOptions}
-  <div class="list-options" bind:this={listOptionsElem} transition:fade>
-    <button class="btn-options-edit" on:click={toggleFormUpdateList}>Editar Nome</button>
+  <div class="options" bind:this={listOptionsElem} transition:fade>
+    <button class="options__edit" on:click={toggleFormUpdateList}>Editar Nome</button>
     <hr>
-    <button class="btn-options-delete" on:click={deleteList}>EXCLUIR LISTA</button>
+    <button class="options__delete" on:click={deleteList}>EXCLUIR LISTA</button>
   </div>
 {/if}

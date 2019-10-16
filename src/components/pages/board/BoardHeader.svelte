@@ -11,25 +11,25 @@
 </script>
 
 <style>
-  .board-header {
+  .board__header {
     display: flex;
     justify-content: space-between;
     margin-top: 25px;
   }
 
-  .board-title {
+  .board__title {
     align-items: center;
     display: flex;
     margin-right: 15px;
     overflow: hidden;
   }
 
-  .board-title-color {
+  .board__color {
     height: 20px;
     min-width: 5px;
   }
 
-  .board-title > h2 {
+  .board__text {
     font-size: 18px;
     font-weight: 500;
     margin: 0;
@@ -41,40 +41,40 @@
 
   /* board btn edit */
 
-  .board-btn-edit {
+  .btn--edit {
     align-items: center;
     color: var(--text-light);
     display: flex;
     padding: 0;
   }
 
-  .board-btn-edit > span {
+  .btn__text {
     display: none;
   }
 
-  .board-btn-edit > i {
+  .btn__icon {
     background-color: var(--list-bg);
     border-radius: 50%;
     padding: 10px;
   }
 
   @media (min-width: 768px) {
-    .board-header {
+    .board__header {
       margin-top: 40px;
     }
 
-    .board-title-color {
+    .board__color {
       height: 25px;
     }
 
-    .board-title > h2 {
+    .board__text {
       font-size: 20px;
       margin-left: 20px;
     }
 
     /* board btn edit */
 
-    .board-btn-edit > span {
+    .btn__text {
       display: block;
       font-size: 14px;
       margin-right: 10px;
@@ -82,15 +82,15 @@
   }
 </style>
 
-<header class="board-header container">
-  <div class="board-title">
-    <span class={`board-title-color ${color}`}></span>
-    <h2>{ name }</h2>
+<header class="board__header container">
+  <div class="board__title">
+    <span class={`board__color ${color}`}></span>
+    <h2 class="board__text">{ name }</h2>
   </div>
 
-  <button class="board-btn-edit" on:click={toggleEditBoard}>
-    <span>Editar</span>
-    <i class="icon-menu-edit"></i>
+  <button class="btn--edit" on:click={toggleEditBoard}>
+    <span class="btn__text" >Editar</span>
+    <i class="btn__icon icon-menu-edit"></i>
   </button>
 </header>
 

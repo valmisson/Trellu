@@ -10,7 +10,7 @@
 </script>
 
 <style>
-  .board-lists {
+  .lists {
     display: flex;
     margin-top: 30px;
     min-height: 73vh;
@@ -20,36 +20,36 @@
     user-select: none;
   }
 
-  .list-wrapper {
+  .lists__wrapper {
     margin-right: 15px;
     min-width: 250px;
     max-width: 250px;
     margin-bottom: 20px;
   }
 
-  .list-wrapper:first-child {
+  .lists__wrapper:first-child {
     margin-left: 15px;
   }
 
   /* create list */
 
-  .create-list {
+  .lists--create {
     position: relative;
   }
 
   @media (min-width: 768px) {
-    .board-lists {
+    .lists {
       margin-top: 40px;
     }
 
-    .list-wrapper {
+    .lists__wrapper {
       min-width: 295px;
       max-width: 295px;
     }
   }
 
   @media (min-width: 1200px) {
-    .board-lists {
+    .lists {
       margin-top: 40px;
       min-height: 71vh;
       max-height: 71vh;
@@ -63,14 +63,14 @@
   }
 </style>
 
-<section class="board-lists">
+<section class="lists">
   {#each $lists as list (list.id)}
-    <article class="list-wrapper" transition:fade>
+    <article class="lists__wrapper" transition:fade>
       <List list={list} boardID={boardID}/>
     </article>
   {/each}
 
-  <article class="list-wrapper create-list">
+  <article class="lists__wrapper lists--create">
     <CreateList boardID={boardID}/>
   </article>
 </section>

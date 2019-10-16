@@ -28,15 +28,15 @@
   })
 </script>
 
-<main class="board" transition:fade>
-  <Header id={board.id} name={board.name} color={board.color} />
-
-  <BoardLists boardID={boardID} />
-</main>
-
 <svelte:head>
   <title>{ board.name } - Trellu</title>
 
   <!-- pwa set dynamic theme color -->
   <meta name="theme-color" content={boardColorHEX(board.color)} >
 </svelte:head>
+
+<main class="board" transition:fade>
+  <Header id={board.id} name={board.name} color={board.color} />
+
+  <BoardLists boardID={boardID} />
+</main>

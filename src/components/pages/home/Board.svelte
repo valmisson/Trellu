@@ -7,36 +7,36 @@
 </script>
 
 <style>
-  .home-board {
+  .boards__item {
     display: grid;
     border-radius: 3px;
   }
 
-  .home-board a {
+  .boards__link {
     padding: 15px;
   }
 
-  .home-board-title {
+  .boards__title {
     color: var(--white);
     font-size: 16px;
     font-weight: 500;
     margin: 0;
   }
 
-  .home-board {
+  .boards__item {
     height: 70px;
     margin-bottom: 20px;
   }
 
   @media (min-width: 768px) {
-    .home-board {
+    .boards__item {
       height: 80px;
     }
   }
 </style>
 
-<article class={`home-board ${color}`}>
-  <a href={generateLink(name, id)} class="btn">
-    <h3 class="home-board-title">{ name }</h3>
+<article class={`boards__item ${color}`}>
+  <a href={generateLink(name, id)} class="boards__link btn">
+    <h3 class="boards__title">{ name }</h3>
   </a>
 </article>

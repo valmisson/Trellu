@@ -16,57 +16,57 @@
 </script>
 
 <style>
-  .home-header {
+  .home__header {
     margin-top: 30px;
   }
 
-  .home-title {
+  .home__title {
     font-size: 18px;
     font-weight: 500;
     margin: 0;
   }
 
-	.home-boards {
+	.boards {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     margin-top: 20px;
   }
 
   @media (min-width: 520px) {
-    .home-boards {
+    .boards {
       grid-column-gap: 20px;
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (min-width: 768px) {
-    .home-header {
+    .home__header {
       margin-top: 40px;
     }
 
-    .home-boards {
+    .boards {
       grid-column-gap: 25px;
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
   @media (min-width: 1200px) {
-    .home-title {
+    .home__title {
       font-size: 20px;
     }
 
-    .home-boards {
+    .boards {
       grid-template-columns: repeat(5, 1fr);
     }
   }
 </style>
 
 <main class="home container" transition:fade>
-  <header class="home-header">
-    <h2 class="home-title">Meus Quadros</h2>
+  <header class="home__header">
+    <h2 class="home__title">Meus Quadros</h2>
   </header>
 
-  <section class="home-boards">
+  <section class="boards">
     {#each boards as board}
       <Board board={board} />
     {/each}

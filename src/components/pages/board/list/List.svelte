@@ -60,7 +60,7 @@
     position: relative;
   }
 
-  .list-cards {
+  .list__cards {
     margin-top: 15px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -79,7 +79,7 @@
 <div class="list">
   <Header name={name} listID={id} boardID={boardID} />
 
-  <ul class="list-cards" {id} bind:this={listCardsElem}>
+  <ul class="list__cards" {id} bind:this={listCardsElem}>
     {#each cardsFiltered as { id, name } (id)}
       <Card id={id} name={name} />
     {/each}

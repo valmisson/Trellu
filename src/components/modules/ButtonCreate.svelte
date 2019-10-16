@@ -4,7 +4,7 @@
 </script>
 
 <style>
-  .btn-create {
+  .btn--create {
     background-color: var(--grey);
     color: var(--text-light);
     height: 70px;
@@ -12,10 +12,10 @@
   }
 
   @media (min-width: 768px) {
-    .btn-create {
+    .btn--create {
       height: 80px;
     }
   }
 </style>
 
-<button class={`btn btn-create ${classWidth}`} on:click>{ title }</button>
+<button class={`btn--create btn ${classWidth}`} on:click>{ title }</button>

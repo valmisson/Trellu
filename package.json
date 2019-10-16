@@ -1,6 +1,6 @@
 {
   "name": "trellu",
-  "version": "0.16.6",
+  "version": "0.17.0",
   "description": "Project manager build with SvelteJS",
   "author": "Valmisson Grizorte - valmisson.com",
   "license": "MIT",

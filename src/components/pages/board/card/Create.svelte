@@ -37,14 +37,14 @@
   }
 </script>
 
-<div class="form-card" in:fade>
+<div class="form__card" in:fade>
   <!-- svelte-ignore a11y-autofocus -->
   <input type="text" placeholder="Digite o nome do cartão"
     bind:value={name} on:keydown="{e => e.which === 13 && createCard()}" autofocus>
 
   <div>
-    <button class="btn-create btn btn-primary" on:click={createCard} disabled={!name}>CRIAR CARTÂO</button>
-    <button class="btn-close icon-close" on:click={toggleForm}></button>
+    <button class="btn btn--primary" on:click={createCard} disabled={!name}>CRIAR CARTÂO</button>
+    <button class="btn--close icon-close" on:click={toggleForm}></button>
   </div>
 </div>
 

@@ -5,12 +5,12 @@
   padding: 15px 20px;
 }
 
-.btn-primary {
+.btn--primary {
   background-color: var(--primary);
   color: var(--white);
 }
 
-.btn-close {
+.btn--close {
   color: var(--text-light);
   font-size: 18px;
   margin-left: 30px;
