@@ -26,9 +26,7 @@
   function updateListStore (listCreated) {
     $lists.push(listCreated)
 
-    const oldList = $lists
-
-    lists.update(l => oldList)
+    lists.update(() => $lists)
   }
 
   async function createList () {

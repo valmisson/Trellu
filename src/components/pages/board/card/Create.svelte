@@ -15,9 +15,7 @@
   function updateCardsStore (cardCreated) {
     $cards.push(cardCreated)
 
-    const oldCards = $cards
-
-    cards.update(() => oldCards)
+    cards.update(() => $cards)
   }
 
   // create card

@@ -10,9 +10,7 @@
   let listCardElem
   let showFormEditCard = false
 
-  function toggleFormEditCard () {
-    showFormEditCard = !showFormEditCard
-  }
+  const toggleFormEditCard = () => showFormEditCard = !showFormEditCard
 
   async function updateCard () {
     await CardsDB.update(id, name)
