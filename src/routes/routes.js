@@ -16,5 +16,9 @@ export default [
         boardID: route.params.id
       }
     }
+  },
+  {
+    path: '*',
+    redirect: '/'
   }
 ]
