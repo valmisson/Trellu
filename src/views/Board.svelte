@@ -47,7 +47,7 @@
 
 <AppHeader color={board.color}/>
 
-<main class={`board ${board.color}`} transition:fade>
+<main class={`board ${board.color}`}>
   <Header id={board.id} name={board.name} color={board.color} />
 
   <BoardLists boardID={boardID} />

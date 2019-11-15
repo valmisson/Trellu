@@ -64,7 +64,7 @@
 
 <AppHeader color="primary" />
 
-<main class="home container" transition:fade>
+<main class="home container">
   <header class="home__header">
     <h2 class="home__title">Meus Quadros</h2>
   </header>
