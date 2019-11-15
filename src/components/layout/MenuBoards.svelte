@@ -33,7 +33,7 @@
   }
 
   .menu__text {
-    color: var(--text-light);
+    color: var(--white);
     margin-left: 10px;
   }
 
@@ -43,7 +43,7 @@
   }
 
   .menu__icon.active {
-    color: var(--primary);
+    color: var(--white);
     transition: color ease 300ms;
   }
 
@@ -71,9 +71,9 @@
   .menu__color {
     border-radius: 3px;
     display: block;
-    height: 25px;
+    height: 20px;
     margin-right: 15px;
-    width: 25px;
+    width: 20px;
   }
 
   /* btn create board */
@@ -84,12 +84,6 @@
     font-weight: 500;
     margin-top: 10px;
     padding: 5px 0;
-  }
-
-  @media (min-width: 1200px) {
-    .menu__box {
-      top: 60px;
-    }
   }
 </style>
 

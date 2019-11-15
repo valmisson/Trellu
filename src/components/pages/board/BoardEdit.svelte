@@ -115,13 +115,6 @@
   }
 
   @media (min-width: 1200px) {
-    /* board edit */
-
-    .board__edit {
-      height: calc(100vh - 60px);
-      top: 60px;
-    }
-
     /* board edit delete */
 
     .edit__delete {

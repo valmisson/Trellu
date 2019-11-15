@@ -30,6 +30,7 @@
   .card {
     background-color: var(--white);
     border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     cursor: grab;
     padding: 10px 10px 20px 10px;
     margin-bottom: 10px;
@@ -86,7 +87,7 @@
   }
 </style>
 
-<li class="card" {id} transition:fade={{ duration: 700 }} bind:this={listCardElem}>
+<li class="card" {id} transition:fade={{ duration: 500 }} bind:this={listCardElem}>
   {#if !showFormEditCard}
     <div class="card__info">
       <span>{ name }</span>

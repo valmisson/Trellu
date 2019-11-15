@@ -5,6 +5,7 @@
   import { formCreate } from '@store'
   import { BoardsDB } from '@datastore'
 
+  import AppHeader from '@components/layout/Header.svelte'
   import Board from '@components/pages/home/Board.svelte'
   import ButtonCreate from '@components/modules/ButtonCreate.svelte'
 
@@ -60,6 +61,8 @@
     }
   }
 </style>
+
+<AppHeader color="primary" />
 
 <main class="home container" transition:fade>
   <header class="home__header">

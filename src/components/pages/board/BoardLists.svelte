@@ -13,8 +13,8 @@
   .lists {
     display: flex;
     margin-top: 30px;
-    min-height: 73vh;
-    max-height: 73vh;
+    min-height: calc(100vh - 140px);
+    max-height: calc(100vh - 140px);
     overflow-x: auto;
     overflow-y: hidden;
     user-select: none;
@@ -39,20 +39,13 @@
 
   @media (min-width: 768px) {
     .lists {
-      margin-top: 40px;
+      min-height: calc(100vh - 150px);
+      max-height: calc(100vh - 150px);
     }
 
     .lists__wrapper {
       min-width: 295px;
       max-width: 295px;
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .lists {
-      margin-top: 40px;
-      min-height: 71vh;
-      max-height: 71vh;
     }
   }
 

@@ -1,14 +1,27 @@
 <script>
   import MenuBoards from './MenuBoards.svelte'
+
+  import { boardColorHEX } from '@utils'
+
+  export let color
 </script>
 
 <style>
   .header {
     align-items: center;
-    background-color: var(--white);
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
     display: flex;
     height: 50px;
+    position: relative;
+  }
+
+  .header:not(.primary)::before {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
   }
 
   .header__link {
@@ -16,10 +29,11 @@
     text-decoration: none;
     margin-left: auto;
     margin-right: 15px;
+    z-index: 1;
   }
 
   .header__brand {
-    color: var(--primary);
+    color: var(--white);
     font-size: 18px;
     font-weight: 500;
   }
@@ -32,17 +46,18 @@
   }
 
   @media (min-width: 1200px) {
-    .header {
-      height: 60px;
-    }
-
     .header__brand {
       font-size: 20px;
     }
   }
 </style>
 
-<header class="header container">
+<svelte:head>
+  <!-- pwa set dynamic theme color -->
+  <meta name="theme-color" content={boardColorHEX(color)} >
+</svelte:head>
+
+<header class={`header container ${color}`}>
   <MenuBoards />
 
   <a href="/" class="header__link">

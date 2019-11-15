@@ -1,15 +1,15 @@
 ::-webkit-scrollbar {
   width: 7px;
-  height: 8px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
   border-radius: 15px;
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: rgba(0, 0, 0, 0.1);
   margin: 0 15px;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 15px;
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.2);
 }

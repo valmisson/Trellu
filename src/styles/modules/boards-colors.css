@@ -21,3 +21,7 @@
 .pink {
   background-color: var(--pink);
 }
+
+.primary {
+  background-color: var(--primary);
+}

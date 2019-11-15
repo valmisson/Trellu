@@ -3,9 +3,9 @@
   import { fade } from 'svelte/transition'
 
   import { lists, cards } from '@store'
-  import { boardColorHEX } from '@utils'
   import { BoardsDB, ListsDB, CardsDB } from '@datastore'
 
+  import AppHeader from '@components/layout/Header.svelte'
   import Header from '@components/pages/board/BoardHeader.svelte'
   import BoardLists from '@components/pages/board/BoardLists.svelte'
 
@@ -28,14 +28,26 @@
   })
 </script>
 
+<style>
+  .board {
+    height: calc(100vh - 50px);
+    padding-top: 25px;
+  }
+
+  @media (min-width: 768px) {
+    .board {
+      padding-top: 30px;
+    }
+  }
+</style>
+
 <svelte:head>
   <title>{ board.name } - Trellu</title>
-
-  <!-- pwa set dynamic theme color -->
-  <meta name="theme-color" content={boardColorHEX(board.color)} >
 </svelte:head>
 
-<main class="board" transition:fade>
+<AppHeader color={board.color}/>
+
+<main class={`board ${board.color}`} transition:fade>
   <Header id={board.id} name={board.name} color={board.color} />
 
   <BoardLists boardID={boardID} />
