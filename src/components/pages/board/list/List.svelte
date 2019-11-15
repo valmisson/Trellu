@@ -25,6 +25,7 @@
     const sortable = new Sortable(listCardsElem, {
       group: 'shared',
       ghostClass: 'ghost-list',
+      fallbackTolerance: 3,
 
       onEnd: async event => {
         // move card to list
