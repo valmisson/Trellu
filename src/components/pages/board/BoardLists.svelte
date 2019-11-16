@@ -20,6 +20,14 @@
     user-select: none;
   }
 
+  .lists::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .lists::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
   .lists__wrapper {
     margin-right: 15px;
     min-width: 250px;

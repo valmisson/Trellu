@@ -68,12 +68,26 @@
     padding-right: 5px;
   }
 
+  .list__cards::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .list__cards::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+
   :global(.ghost-list) {
     opacity: 0.3;
   }
 
   :global(.sortable-chosen) {
     cursor: grabbing !important;
+  }
+
+  @media (min-width: 1200px) {
+    .list__cards::-webkit-scrollbar {
+      width: 7px;
+    }
   }
 </style>
 

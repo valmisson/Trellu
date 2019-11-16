@@ -1,6 +1,5 @@
 <script>
   import { onMount } from 'svelte'
-  import { fade } from 'svelte/transition'
 
   import { lists, cards } from '@store'
   import { BoardsDB, ListsDB, CardsDB } from '@datastore'
