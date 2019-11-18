@@ -11,6 +11,7 @@
   export let boardID
 
   let board = {
+    id: '',
     name: '',
     background: ''
   }
@@ -51,7 +52,7 @@
 </svelte:head>
 
 <main class="board">
-  <Header id={board.id} name={board.name} />
+  <Header {board} />
 
-  <BoardLists boardID={boardID} />
+  <BoardLists {boardID} />
 </main>

@@ -18,8 +18,8 @@ const getAll = async () => {
   return all
 }
 
-const update = async (id, name) => {
-  await boards.update(id, { name })
+const update = async (id, name, background) => {
+  await boards.update(id, { name, background })
 }
 
 const remove = async boardID => {

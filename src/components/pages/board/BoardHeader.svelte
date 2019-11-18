@@ -1,8 +1,7 @@
 <script>
   import BoardEdit from './BoardEdit.svelte'
 
-  export let id
-  export let name
+  export let board
 
   let showEditBoard = false
 
@@ -62,7 +61,7 @@
 </style>
 
 <header class="board__header container">
-  <h2 class="board__title">{ name }</h2>
+  <h2 class="board__title">{ board.name }</h2>
 
   <button class="btn--edit" on:click={toggleEditBoard}>
     <span class="btn__text" >Editar</span>
@@ -71,5 +70,5 @@
 </header>
 
 {#if showEditBoard}
-  <BoardEdit id={id} name={name} toggleEdit={toggleEditBoard} />
+  <BoardEdit {...board} toggleEdit={toggleEditBoard} />
 {/if}
