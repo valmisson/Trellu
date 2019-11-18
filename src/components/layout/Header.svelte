@@ -1,9 +1,5 @@
 <script>
   import MenuBoards from './MenuBoards.svelte'
-
-  import { boardColorHEX } from '@utils'
-
-  export let color
 </script>
 
 <style>
@@ -52,12 +48,7 @@
   }
 </style>
 
-<svelte:head>
-  <!-- pwa set dynamic theme color -->
-  <meta name="theme-color" content={boardColorHEX(color)} >
-</svelte:head>
-
-<header class={`header container ${color}`}>
+<header class="header container">
   <MenuBoards />
 
   <a href="/" class="header__link">

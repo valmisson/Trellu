@@ -13,3 +13,4 @@ function formCreateBoard () {
 export const formCreate = formCreateBoard()
 export const lists = writable([])
 export const cards = writable([])
+export const boardBackground = writable(['blue', 'red', 'green', 'yellow', 'purple', 'pink', 'img1', 'img2', 'img3'])

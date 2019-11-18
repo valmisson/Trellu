@@ -3,8 +3,8 @@
 
   import { lists, cards } from '@store'
   import { BoardsDB, ListsDB, CardsDB } from '@datastore'
+  import { boardColorHEX } from '@utils'
 
-  import AppHeader from '@components/layout/Header.svelte'
   import Header from '@components/pages/board/BoardHeader.svelte'
   import BoardLists from '@components/pages/board/BoardLists.svelte'
 
@@ -12,11 +12,14 @@
 
   let board = {
     name: '',
-    color: ''
+    background: ''
   }
 
   onMount(async () => {
     board = await BoardsDB.get(boardID)
+
+    // set bg color on body
+    document.body.classList.add(board.background)
 
     let allLists = await ListsDB.getAll(boardID)
     let allCards = await CardsDB.getAll(boardID)
@@ -42,12 +45,13 @@
 
 <svelte:head>
   <title>{ board.name } - Trellu</title>
+
+  <!-- pwa set theme color -->
+  <meta name="theme-color" content={boardColorHEX(board.background)} >
 </svelte:head>
 
-<AppHeader color={board.color}/>
-
-<main class={`board ${board.color}`}>
-  <Header id={board.id} name={board.name} color={board.color} />
+<main class="board">
+  <Header id={board.id} name={board.name} />
 
   <BoardLists boardID={boardID} />
 </main>

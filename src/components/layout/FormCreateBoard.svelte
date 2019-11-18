@@ -2,20 +2,18 @@
   import { fade } from 'svelte/transition'
   import { router } from '@spaceavocado/svelte-router'
 
-  import { formCreate } from '@store'
+  import { formCreate, boardBackground } from '@store'
   import { UID, generateLink } from '@utils'
   import { BoardsDB } from '@datastore'
 
-  const colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink']
   let selected = 0
-
   let name
-  let color = colors[0]
+  let background = $boardBackground[0]
 
   const select = value => e => {
     selected = e.target.id
 
-    color = value
+    background = value
   }
 
   async function createBoard () {
@@ -23,19 +21,23 @@
 
     const id = UID()
 
-    await BoardsDB.create({ id, name, color })
+    await BoardsDB.create({ id, name, background })
 
     formCreate.close()
 
     // go to new board
     $router.push(generateLink(name, id))
+
+    // remove background of header
+    document.querySelector('.header').classList.remove('primary')
+
     location.reload()
   }
 </script>
 
 <style>
   .modal--overlay {
-    background-color: rgba(93, 93, 93, 0.35);
+    background-color: rgba(93, 93, 93, 0.55);
     height: 100vh;
     position: fixed;
     width: 100vw;
@@ -64,7 +66,7 @@
     margin-top: 10px;
   }
 
-  .form__colors {
+  .form__background {
     display: grid;
     grid-column-gap: 20px;
     grid-template-columns: repeat(3, 45px);
@@ -72,7 +74,7 @@
     margin-top: 10px;
   }
 
-  .btn--color {
+  .btn--background {
     border-radius: 3px;
     height: 45px;
     margin-top: 20px;
@@ -100,18 +102,19 @@
       padding-right: 6%;
     }
 
-    .form__colors {
+    .form__background {
       margin-top: 20px;
     }
 
-    .btn--color {
+    .btn--background {
       margin-top: 5px;
       margin-bottom: 15px;
     }
 
     .btn--create {
+      max-height: 45px;
+      margin-top: -55px;
       width: 40%;
-      margin-top: -35px;
     }
   }
 
@@ -128,11 +131,11 @@
       grid-template-columns: 68% 25%;
     }
 
-    .form__colors {
+    .form__background {
       grid-template-columns: repeat(3, 40px);
     }
 
-    .btn--color {
+    .btn--background {
       height: 40px;
     }
   }
@@ -148,10 +151,10 @@
     <input type="text" placeholder="Digite o nome do quadro" bind:value={name} autofocus>
   </div>
 
-  <div class="form__colors">
-    {#each colors as color, index}
-      <button class={`btn--color ${color} ${selected == index ? 'selected' : ''}`}
-        on:click={select(color)} id={index}></button>
+  <div class="form__background">
+    {#each $boardBackground as background, index}
+      <button class={`btn--background ${background} ${selected == index ? 'selected' : ''}`}
+        on:click={select(background)} id={index}></button>
     {/each}
   </div>
 

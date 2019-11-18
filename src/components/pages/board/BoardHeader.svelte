@@ -3,7 +3,6 @@
 
   export let id
   export let name
-  export let color
 
   let showEditBoard = false
 

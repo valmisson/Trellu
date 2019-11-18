@@ -3,14 +3,17 @@
 
   import { formCreate } from '@store'
   import { BoardsDB } from '@datastore'
+  import { boardColorHEX } from '@utils'
 
-  import AppHeader from '@components/layout/Header.svelte'
   import Board from '@components/pages/home/Board.svelte'
   import ButtonCreate from '@components/modules/ButtonCreate.svelte'
 
   let boards = []
 
   onMount(async () => {
+    // set bg color on header
+    document.querySelector('.header').classList.add('primary')
+
     boards = await BoardsDB.getAll()
   })
 </script>
@@ -61,7 +64,10 @@
   }
 </style>
 
-<AppHeader color="primary" />
+<svelte:head>
+  <!-- pwa set dynamic theme color -->
+  <meta name="theme-color" content={boardColorHEX('primary')} >
+</svelte:head>
 
 <main class="home container">
   <header class="home__header">

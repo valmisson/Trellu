@@ -68,7 +68,7 @@
     text-decoration: underline;
   }
 
-  .menu__color {
+  .menu__background {
     border-radius: 3px;
     display: block;
     height: 20px;
@@ -101,7 +101,7 @@
       {#each boards as board}
         <li class="menu__item">
           <a href={generateLink(board.name, board.id)} class="menu__link">
-            <div class={`menu__color ${board.color}`}></div>
+            <div class={`menu__background ${board.background}`}></div>
             <span>{ board.name }</span>
           </a>
         </li>
