@@ -1,5 +1,10 @@
 # Trellu Changelog
 
+## 1.2.1
+
+* Fix icons load on offline mode
+* Fix in PWA, add navigate fallback on service worker
+
 ## 1.2.0
 
 * Add feature for update the background of board
