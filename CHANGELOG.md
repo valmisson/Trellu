@@ -1,5 +1,10 @@
 # Trellu Changelog
 
+## 1.2.0
+
+* Add feature for update the background of board
+* Add background image in board
+
 ## 1.1.4
 
 * Fix scrollbar color
