@@ -17,7 +17,7 @@
   <script>
     window.isUpdateAvailable = new Promise(function(resolve, reject) {
       if ('serviceWorker' in navigator && ['localhost', '127'].indexOf(location.hostname) === -1) {
-        navigator.serviceWorker.register('sw.js')
+        navigator.serviceWorker.register('/sw.js')
           .then(registration => {
             registration.onupdatefound = () => {
               const installingWorker = registration.installing

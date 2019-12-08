@@ -71,7 +71,9 @@ export default {
         ],
         swDest: 'public/sw.js',
         clientsClaim: true,
-        skipWaiting: true
+        skipWaiting: true,
+        navigateFallback: '/index.html',
+        navigateFallbackWhitelist: [/^\/b\//]
       }
     }),
 
