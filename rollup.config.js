@@ -67,7 +67,7 @@ export default {
       options: {
         globDirectory: 'public',
         globPatterns: [
-          '**/*.{html,json,js,css,png,svg,woff}'
+          '**/*.{html,json,js,css,png,svg,woff,ttf,eot}'
         ],
         swDest: 'public/sw.js',
         clientsClaim: true,
