@@ -8,6 +8,7 @@ import workbox from 'rollup-plugin-workbox-build'
 import postcss from 'rollup-plugin-postcss'
 
 // postcss plugins
+import cssnano from 'cssnano'
 import postcssImport from 'postcss-import'
 import postcssPresetEnv from 'postcss-preset-env'
 
@@ -41,6 +42,9 @@ export default {
         postcssPresetEnv({
           stage: 4,
           browsers: 'last 2 versions'
+        }),
+        cssnano({
+          preset: 'default'
         })
       ],
       extract: true,
