@@ -46,9 +46,6 @@
 
 <svelte:head>
   <title>{ board.name } - Trellu</title>
-
-  <!-- pwa set theme color -->
-  <meta name="theme-color" content={boardColorHEX(board.background)} >
 </svelte:head>
 
 <main class="board">
