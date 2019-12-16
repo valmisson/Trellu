@@ -1,5 +1,11 @@
 # Trellu Changelog
 
+## 1.2.2
+
+* Remove dynamic theme color in board page
+* Minify bundle css for production
+* Upgrade dependencies
+
 ## 1.2.1
 
 * Fix icons load on offline mode
