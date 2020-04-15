@@ -56,11 +56,11 @@
   .board__edit {
     background-color: var(--white);
     box-shadow: -3px 0 5px rgba(0, 0, 0, 0.05);
-    height: calc(100vh - 50px);
-    padding: 20px;
+    height: 100vh;
+    padding: 10px 20px 20px 20px;
     position: fixed;
     right: 0;
-    top: 50px;
+    top: 0;
     width: 300px;
     z-index: 997;
   }
@@ -92,7 +92,7 @@
 
   .edit__input {
     margin-top: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 
   .edit__background {
@@ -146,7 +146,7 @@
     /* board edit form */
 
     .edit__input {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .edit__background {
@@ -170,7 +170,7 @@
 
     .edit__delete {
       position: absolute;
-      bottom: 40px;
+      bottom: 35px;
     }
 
     .btn--delete {
@@ -193,7 +193,7 @@
   <div class="edit__form">
     <label>Nome</label>
 
-    <textarea type="text" class="edit__input" placeholder="Digite o nome do quadro" rows="2"
+    <textarea type="text" class="edit__input" placeholder="Digite o nome do quadro" rows="3"
       bind:value={name}></textarea>
 
 
