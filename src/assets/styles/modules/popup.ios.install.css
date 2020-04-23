@@ -1,0 +1,47 @@
+.popup_ios_install {
+    background-color: #fcfcfc;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    padding: 1rem 1rem 0 1rem;
+    position: fixed;
+    text-align: center;
+    visibility: hidden;
+    transition: all ease 400ms;
+    width: 100%;
+    z-index: 9999;
+  }
+  
+  .popup_ios__close {
+    color: #848484;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 2.25rem;
+    position: absolute;
+    right: 0.5rem;
+    top: 0;
+  }
+  
+  .popup_ios__brand {
+    border-radius: 6px;
+    margin-bottom: 0.625rem;
+    width: 42px;
+  }
+  
+  .popup_ios__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  
+  .popup_ios__text {
+    margin-top: 1rem;
+  }
+  
+  .popup_ios__text .popup_ios__share {
+    position: relative;
+    top: 0.625rem;
+    width: 32px;
+  }
