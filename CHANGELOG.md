@@ -1,5 +1,10 @@
 # Trellu Changelog
 
+## 1.2.3
+* Fix in PWA, add popup for install in IOS
+* Fixes security vulnerability
+* Beautify edit form
+
 ## 1.2.2
 
 * Remove dynamic theme color in board page
