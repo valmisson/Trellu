@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte'
   import { fade } from 'svelte/transition'
+  import { t } from 'svelte-i18n'
 
   import { formCreate } from '@store'
   import { generateLink } from '@utils'
@@ -90,7 +91,7 @@
 <nav class="menu" bind:this={menuElem}>
   <button class="btn--menu" on:click={toggleMenuBox} >
     <i class="menu__icon icon-board" class:active={showMenuBox}></i>
-    <span class="menu__text">Quadros</span>
+    <span class="menu__text">{$t('header.menuBoard.title')}</span>
   </button>
 
   {#if showMenuBox}
@@ -107,7 +108,7 @@
         </li>
       {/each}
 
-      <button class="btn--create" on:click={showForm}>CRIAR NOVO QUADRO</button>
+      <button class="btn--create" on:click={showForm}>{$t('header.menuBoard.create')}</button>
     </ul>
   {/if}
 </nav>

@@ -1,5 +1,6 @@
 <script>
   import MenuBoards from './MenuBoards.svelte'
+  import Translate from './Translate.svelte'
 </script>
 
 <style>
@@ -8,6 +9,7 @@
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
     display: flex;
     height: 50px;
+    justify-content: space-between;
     position: relative;
   }
 
@@ -23,8 +25,6 @@
   .header__link {
     display: table;
     text-decoration: none;
-    margin-left: auto;
-    margin-right: 15px;
     z-index: 1;
   }
 
@@ -32,13 +32,6 @@
     color: var(--white);
     font-size: 18px;
     font-weight: 500;
-  }
-
-  @media (min-width: 768px) {
-    .header__link {
-      margin: 0 auto;
-      transform: translate(-100%, 0);
-    }
   }
 
   @media (min-width: 1200px) {
@@ -54,4 +47,6 @@
   <a href="/" class="header__link">
     <h1 class="header__brand">Trellu</h1>
   </a>
+
+  <Translate />
 </header>

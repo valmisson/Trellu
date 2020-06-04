@@ -3,6 +3,8 @@ import './assets/styles/main.css'
 import './assets/javascript/pwa.install'
 import './assets/javascript/popup.ios.intall'
 
+import './services/i18n'
+
 import App from './App.svelte'
 
 const app = new App({

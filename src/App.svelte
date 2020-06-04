@@ -3,7 +3,7 @@
 
   import { formCreate } from '@store'
 
-  import Header from '@components/layout/Header.svelte'
+  import Header from '@components/layout/Header/Header.svelte'
   import FormCreateBoard from '@components/layout/FormCreateBoard.svelte'
 </script>
 

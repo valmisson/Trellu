@@ -1,6 +1,7 @@
 <script>
   import { fade } from 'svelte/transition'
   import { router } from '@spaceavocado/svelte-router'
+  import { t } from 'svelte-i18n'
 
   import { formCreate, boardBackground } from '@store'
   import { UID, generateLink } from '@utils'
@@ -158,5 +159,5 @@
     {/each}
   </div>
 
-  <button class="btn--create btn btn--primary" on:click={createBoard} disabled={!name}>CRIAR QUADRO</button>
+  <button class="btn--create btn btn--primary" on:click={createBoard} disabled={!name}>{$t('header.menuBoard.create')}</button>
 </section>
