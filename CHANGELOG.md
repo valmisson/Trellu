@@ -1,5 +1,9 @@
 # Trellu Changelog
 
+## 1.2.4
+* Fix control in label
+* Upgrade Dependencies
+
 ## 1.2.3
 * Fix in PWA, add popup for install in IOS
 * Fixes security vulnerability
