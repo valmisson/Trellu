@@ -191,13 +191,13 @@
   </header>
 
   <div class="edit__form">
-    <label>Nome</label>
+    <label for="name">Nome</label>
 
     <textarea type="text" class="edit__input" placeholder="Digite o nome do quadro" rows="3"
       bind:value={name}></textarea>
 
 
-    <label>Background</label>
+    <label for="background">Background</label>
 
     <div class="edit__background">
       {#each $boardBackground as background, index}

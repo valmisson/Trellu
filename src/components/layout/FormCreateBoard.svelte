@@ -145,7 +145,7 @@
 
 <section class="form__modal" transition:fade>
   <div class="form__input">
-    <label>Nome do Quadro</label>
+    <label for="title">Nome do Quadro</label>
 
     <!-- svelte-ignore a11y-autofocus -->
     <input type="text" placeholder="Digite o nome do quadro" bind:value={name} autofocus>
