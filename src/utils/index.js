@@ -1,5 +1,5 @@
 export function UID () {
-  return (Date.now().toString(36) + Math.random.toString(36)).substr(3, 5)
+  return Math.random().toString(36).substring(2, 7)
 }
 
 export function generateLink (name, id) {
