@@ -1,5 +1,8 @@
 # Trellu Changelog
 
+## 1.2.5
+* Refactor UUID generator
+
 ## 1.2.4
 * Fix control in label
 * Upgrade Dependencies
