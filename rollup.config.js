@@ -1,10 +1,11 @@
+import path from 'node:path'
 import svelte from 'rollup-plugin-svelte'
-import resolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
-import { terser } from 'rollup-plugin-terser'
+import terser from '@rollup/plugin-terser'
 import alias from '@rollup/plugin-alias'
-import workbox from 'rollup-plugin-workbox-build'
+import { generateSW } from 'rollup-plugin-workbox'
 import postcss from 'rollup-plugin-postcss'
 
 // postcss plugins
@@ -30,9 +31,7 @@ export default {
 
         // we'll extract any component CSS out into
         // a separate file — better for performance
-        css: css => {
-          css.write('public/bundle.css')
-        }
+        css: 'injected'
       },
 
       emitCss: false,
@@ -57,30 +56,28 @@ export default {
     alias({
       resolve: ['', '.js', '.svelte'],
       entries: [
-        { find: '~', replacement: './' },
-        { find: '@', replacement: 'src' },
-        { find: '@components', replacement: 'src/components' },
-        { find: '@views', replacement: 'src/views' },
-        { find: '@datastore', replacement: 'src/datastore/index.js' },
-        { find: '@utils', replacement: 'src/utils/index.js' },
-        { find: '@store', replacement: 'src/store.js' }
+        { find: '~', replacement: path.resolve(__dirname, './') },
+        { find: '@', replacement: path.resolve(__dirname, 'src') },
+        { find: '@components', replacement: path.resolve(__dirname, 'src/components') },
+        { find: '@views', replacement: path.resolve(__dirname, 'src/views') },
+        { find: '@datastore', replacement: path.resolve(__dirname, 'src/datastore/index.js') },
+        { find: '@utils', replacement: path.resolve(__dirname, 'src/utils/index.js') },
+        { find: '@store', replacement: path.resolve(__dirname, 'src/store.js') }
       ]
     }),
 
     // generate service work
-    production && workbox({
+    production && generateSW({
       mode: 'generateSW',
-      options: {
-        globDirectory: 'public',
-        globPatterns: [
-          '**/*.{html,json,js,css,png,svg,woff,ttf,eot}'
-        ],
-        swDest: 'public/sw.js',
-        clientsClaim: true,
-        skipWaiting: true,
-        navigateFallback: '/index.html',
-        navigateFallbackWhitelist: [/^\/b\//]
-      }
+      globDirectory: 'public',
+      globPatterns: [
+        '**/*.{html,json,js,css,png,svg,woff,ttf,eot}'
+      ],
+      swDest: 'public/sw.js',
+      clientsClaim: true,
+      skipWaiting: true,
+      navigateFallback: '/index.html',
+      navigateFallbackAllowlist: [/^\/b\//]
     }),
 
     // If you have external dependencies installed from
@@ -90,6 +87,7 @@ export default {
     // https://github.com/rollup/rollup-plugin-commonjs
     resolve({
       browser: true,
+      exportConditions: ['svelte'],
       dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
     }),
     commonjs(),
