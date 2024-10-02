@@ -3,7 +3,6 @@
 
   import { lists, cards } from '@store'
   import { BoardsDB, ListsDB, CardsDB } from '@datastore'
-  import { boardColorHEX } from '@utils'
 
   import Header from '@components/pages/board/BoardHeader.svelte'
   import BoardLists from '@components/pages/board/BoardLists.svelte'

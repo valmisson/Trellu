@@ -141,7 +141,8 @@
   }
 </style>
 
-<div class="modal--overlay" on:click={formCreate.close} transition:fade></div>
+<!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+<div class="modal--overlay" on:click={formCreate.close} transition:fade />
 
 <section class="form__modal" transition:fade>
   <div class="form__input">

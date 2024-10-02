@@ -5,8 +5,8 @@ function formCreateBoard () {
 
   return {
     subscribe,
-    show: () => update(n => true),
-    close: () => update(n => false)
+    show: () => update(() => true),
+    close: () => update(() => false)
   }
 }
 

@@ -1,4 +1,4 @@
-window.isUpdateAvailable = new Promise(function(resolve, reject) {
+window.isUpdateAvailable = new Promise(function(resolve) {
   if ('serviceWorker' in navigator && ['localhost', '127'].indexOf(location.hostname) === -1) {
     const x = 'sw.js'
     navigator.serviceWorker.register(x)

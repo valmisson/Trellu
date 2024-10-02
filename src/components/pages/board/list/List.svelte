@@ -22,7 +22,7 @@
 
   onMount(() => {
     // register drag-drop plugin
-    const sortable = new Sortable(listCardsElem, {
+    new Sortable(listCardsElem, {
       group: 'shared',
       ghostClass: 'ghost-list',
       fallbackTolerance: 3,
