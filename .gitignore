@@ -2,17 +2,29 @@
 .DS_*
 *.log
 logs
+npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # Dependency directories
 node_modules
 
-# dotenv environment variables file
+# Environment variables
 .env
-.env.test
+.env.*
+!.env.example
 
-# Svelte
-public/bundle.*
-public/sw.*
-public/workbox-*
+# Build output
+/.svelte-kit
+/build
+/dist
+/.vercel
+/.netlify
+
+# Static generated assets
+/public/build
+/public/**/*.map
+
+# Local files
+*.local

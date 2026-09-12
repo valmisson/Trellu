@@ -1,43 +1,32 @@
 {
   "name": "trellu",
   "version": "1.2.5",
-  "description": "Project manager build with SvelteJS",
+  "description": "Project manager built with SvelteKit and Vite",
   "author": "Valmisson Grizorte - valmisson.com",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs",
-    "autobuild": "rollup -c -w --bundleConfigAsCjs",
-    "dev": "run-p start:dev autobuild",
-    "start": "sirv public --single",
-    "start:dev": "sirv public --single --dev",
-    "lint": "eslint src/**"
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+    "lint": "eslint src"
   },
   "dependencies": {
-    "@spaceavocado/svelte-router": "^1.0.16",
-    "dexie": "^4.0.8",
+    "dexie": "^4.4.6",
     "normalize.css": "^8.0.1",
-    "sortablejs": "^1.15.0",
-    "svelte": "^4.2.19"
+    "sortablejs": "^1.15.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
-    "@rollup/plugin-alias": "^5.1.1",
-    "@rollup/plugin-commonjs": "^28.0.0",
-    "@rollup/plugin-node-resolve": "^15.3.0",
-    "@rollup/plugin-terser": "^0.4.4",
-    "cssnano": "^7.0.6",
-    "eslint": "^9.11.1",
-    "eslint-plugin-svelte": "^2.44.1",
-    "globals": "^15.10.0",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.21",
-    "postcss-import": "^16.1.0",
-    "postcss-preset-env": "^10.0.5",
-    "rollup": "^4.23.0",
-    "rollup-plugin-livereload": "^2.0.5",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-svelte": "^7.1.0",
-    "rollup-plugin-workbox": "^8.1.0",
-    "sirv-cli": "^2.0.2"
+    "@sveltejs/adapter-auto": "^4.0.0",
+    "@sveltejs/kit": "^2.70.3",
+    "@sveltejs/vite-plugin-svelte": "^5.1.1",
+    "eslint": "^9.39.5",
+    "eslint-plugin-svelte": "^3.23.0",
+    "globals": "^15.15.0",
+    "svelte": "^5.57.0",
+    "svelte-check": "^4.7.6",
+    "vite": "^6.4.3"
   }
 }

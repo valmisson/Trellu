@@ -1,10 +1,8 @@
 <script>
-  import RouterView from './routes'
+  import { formCreate } from '$lib/store'
 
-  import { formCreate } from '@store'
-
-  import Header from '@components/layout/Header.svelte'
-  import FormCreateBoard from '@components/layout/FormCreateBoard.svelte'
+  import Header from '$lib/components/layout/Header.svelte'
+  import FormCreateBoard from '$lib/components/layout/FormCreateBoard.svelte'
 </script>
 
 {#if $formCreate}
@@ -13,4 +11,4 @@
 
 <Header />
 
-<RouterView />
+<slot />
