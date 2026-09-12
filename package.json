@@ -1,6 +1,6 @@
 {
   "name": "trellu",
-  "version": "1.2.5",
+  "version": "2.0.0",
   "description": "Project manager built with SvelteKit and Vite",
   "author": "Valmisson Grizorte - valmisson.com",
   "license": "MIT",

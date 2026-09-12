@@ -1,5 +1,18 @@
 # Trellu Changelog
 
+## 2.0.0
+
+* **BREAKING**: Migrate from legacy build setup to SvelteKit + Vite
+* **BREAKING**: Update to Svelte 5 with modern event and prop syntax
+* Restructure project following community SvelteKit patterns (src/lib, src/routes)
+* Update all components to Svelte 5 syntax (onclick, onkeydown, $props())
+* Move static assets to correct SvelteKit static folder
+* Fix SSR/browser-only runtime incompatibilities
+* Fix asset path resolution for fonts and icons in production
+* Improve accessibility for icon-only buttons with aria-labels
+* Remove legacy packages (Rollup, sirv-cli, @spaceavocado/svelte-router)
+* Production build validated with svelte-check and npm run build
+
 ## 1.2.5
 * Refactor UUID generator
 
